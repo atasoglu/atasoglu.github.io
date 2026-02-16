@@ -15,37 +15,32 @@ const { email, website, github, linkedin, twitter } = Astro.props;
     <h2 class="section-title">Get In Touch</h2>
     <div class="contact-content">
       <p class="contact-intro">
-        I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+        Feel free to reach out for collaborations or just a friendly chat.
       </p>
       <div class="contact-links">
         {email && (
           <a href={`mailto:${email}`} class="contact-link">
-            <span class="contact-icon">✉️</span>
-            <span>{email}</span>
+            {email}
           </a>
         )}
         {website && (
           <a href={website} target="_blank" rel="noopener noreferrer" class="contact-link">
-            <span class="contact-icon">🌐</span>
-            <span>Website</span>
+            Website
           </a>
         )}
         {github && (
           <a href={`https://github.com/${github}`} target="_blank" rel="noopener noreferrer" class="contact-link">
-            <span class="contact-icon">💻</span>
-            <span>GitHub</span>
+            GitHub
           </a>
         )}
         {linkedin && (
           <a href={linkedin} target="_blank" rel="noopener noreferrer" class="contact-link">
-            <span class="contact-icon">💼</span>
-            <span>LinkedIn</span>
+            LinkedIn
           </a>
         )}
         {twitter && (
           <a href={`https://twitter.com/${twitter.replace('@', '')}`} target="_blank" rel="noopener noreferrer" class="contact-link">
-            <span class="contact-icon">🐦</span>
-            <span>Twitter</span>
+            Twitter
           </a>
         )}
       </div>
@@ -59,53 +54,51 @@ const { email, website, github, linkedin, twitter } = Astro.props;
   }
   
   .contact-content {
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
     text-align: center;
   }
   
   .contact-intro {
-    font-size: 1.125rem;
-    margin-bottom: var(--spacing-xl);
-    line-height: 1.8;
+    font-size: 1rem;
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.6;
+    color: var(--color-text-secondary);
   }
   
   .contact-links {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: var(--spacing-md);
+    justify-content: center;
     align-items: center;
   }
   
   .contact-link {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-    padding: var(--spacing-md) var(--spacing-lg);
-    background-color: var(--color-bg);
-    border: 2px solid var(--color-border);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background-color: transparent;
+    border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
-    width: 100%;
-    max-width: 400px;
     transition: var(--transition);
     font-weight: 500;
+    font-size: 0.95rem;
   }
   
   .contact-link:hover {
     border-color: var(--color-primary);
-    background-color: var(--color-primary);
-    color: white;
+    color: var(--color-primary);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-  }
-  
-  .contact-icon {
-    font-size: 1.5rem;
   }
   
   @media (max-width: 768px) {
+    .contact-links {
+      flex-direction: column;
+      width: 100%;
+    }
+    
     .contact-link {
-      padding: var(--spacing-sm) var(--spacing-md);
+      width: 100%;
+      max-width: 300px;
     }
   }
 </style>
