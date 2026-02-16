@@ -68,7 +68,6 @@ const pageDescription = personal.bio || personalEntry?.body || 'Personal portfol
       name={personal.name}
       title={personal.title}
       bio={personal.bio}
-      BioContent={BioContent}
       avatar={personal.avatar}
       university={personal.university}
       email={personal.email}
@@ -83,8 +82,7 @@ const pageDescription = personal.bio || personalEntry?.body || 'Personal portfol
       posts={posts}
     />
     <About
-      bio={personal.bio}
-      BioContent={BioContent}
+      AboutContent={BioContent}
       location={personal.location}
       skills={skills}
     />

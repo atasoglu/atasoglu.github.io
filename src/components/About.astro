@@ -1,12 +1,11 @@
 ---
 interface Props {
-  bio?: string;
-  BioContent?: any;
+  AboutContent?: any;
   location?: string;
   skills: Array<{ category: string; items: string[] }>;
 }
 
-const { bio, BioContent, location, skills } = Astro.props;
+const { AboutContent, location, skills } = Astro.props;
 ---
 
 <section id="about" class="about">
@@ -14,10 +13,8 @@ const { bio, BioContent, location, skills } = Astro.props;
     <h2 class="section-title">About Me</h2>
     <div class="about-content">
       <div class="about-text">
-        {BioContent ? (
-          <BioContent />
-        ) : bio ? (
-          <p>{bio}</p>
+        {AboutContent ? (
+          <AboutContent />
         ) : null}
         {location && (
           <p class="location">
