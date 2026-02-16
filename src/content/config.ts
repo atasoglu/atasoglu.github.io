@@ -51,7 +51,6 @@ const projectsCollection = defineCollection({
 const skillsCollection = defineCollection({
   type: "content",
   schema: z.object({
-    category: z.string(),
     items: z.array(z.string()),
   }),
 });
