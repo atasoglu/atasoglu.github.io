@@ -7,9 +7,10 @@ interface Props {
   twitter?: string;
   huggingface?: string;
   medium?: string;
+  pypi?: string;
 }
 
-const { email, website, github, linkedin, twitter, huggingface, medium } = Astro.props;
+const { email, website, github, linkedin, twitter, huggingface, medium, pypi } = Astro.props;
 ---
 
 <section id="contact" class="contact">
@@ -53,6 +54,11 @@ const { email, website, github, linkedin, twitter, huggingface, medium } = Astro
         {medium && (
           <a href={medium} target="_blank" rel="noopener noreferrer" class="contact-link">
             Medium
+          </a>
+        )}
+        {pypi && (
+          <a href={pypi} target="_blank" rel="noopener noreferrer" class="contact-link">
+            PyPI
           </a>
         )}
       </div>

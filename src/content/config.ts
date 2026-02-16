@@ -18,6 +18,7 @@ const personalCollection = defineCollection({
     cv: z.string().optional(),
     huggingface: z.string().url().optional(),
     medium: z.string().url().optional(),
+    pypi: z.string().url().optional(),
     interests: z.array(z.string()).optional(),
   }),
 });

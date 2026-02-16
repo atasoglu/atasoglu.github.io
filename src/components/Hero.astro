@@ -13,6 +13,7 @@ interface Props {
   cv?: string;
   huggingface?: string;
   medium?: string;
+  pypi?: string;
   interests?: string[];
   posts?: Array<{
     title: string;
@@ -22,7 +23,7 @@ interface Props {
   }>;
 }
 
-const { name, title, bio, avatar, university, email, linkedin, github, twitter, scholar, cv, huggingface, medium, interests, posts } = Astro.props;
+const { name, title, bio, avatar, university, email, linkedin, github, twitter, scholar, cv, huggingface, medium, pypi, interests, posts } = Astro.props;
 
 // Handle avatar path with base URL
 const baseURL = import.meta.env.BASE_URL;
@@ -105,6 +106,22 @@ const avatarPath = avatar
             <a href={medium} target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Medium">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+              </svg>
+            </a>
+          )}
+          {pypi && (
+            <a href={pypi} target="_blank" rel="noopener noreferrer" class="social-link python-link" aria-label="PyPI">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 110 110">
+                <linearGradient id="python-grad1" gradientUnits="userSpaceOnUse" x1="10.5185" y1="9.6008" x2="65.196" y2="64.6104">
+                  <stop offset="0" style="stop-color:#387EB8"/>
+                  <stop offset="1" style="stop-color:#366994"/>
+                </linearGradient>
+                <path fill="url(#python-grad1)" d="M55.023-0.077c-25.971,0-26.25,10.081-26.25,12.156c0,3.148,0,12.594,0,12.594h26.75v3.781c0,0-27.852,0-37.375,0c-7.949,0-17.938,4.833-17.938,26.25c0,19.673,7.792,27.281,15.656,27.281c2.335,0,9.344,0,9.344,0s0-9.765,0-13.125c0-5.491,2.721-15.656,15.406-15.656c15.91,0,19.971,0,26.531,0c3.902,0,14.906-1.696,14.906-14.406c0-13.452,0-17.89,0-24.219C82.054,11.426,81.515-0.077,55.023-0.077z M40.273,8.392c2.662,0,4.813,2.15,4.813,4.813c0,2.661-2.151,4.813-4.813,4.813s-4.813-2.151-4.813-4.813C35.46,10.542,37.611,8.392,40.273,8.392z"/>
+                <linearGradient id="python-grad2" gradientUnits="userSpaceOnUse" x1="43.747" y1="88.0642" x2="102.369" y2="32.0004">
+                  <stop offset="0" style="stop-color:#FFE052"/>
+                  <stop offset="1" style="stop-color:#FFC331"/>
+                </linearGradient>
+                <path fill="url(#python-grad2)" d="M55.397,109.923c25.959,0,26.282-10.271,26.282-12.156c0-3.148,0-12.594,0-12.594H54.897v-3.781c0,0,28.032,0,37.375,0c8.009,0,17.938-4.954,17.938-26.25c0-23.322-10.538-27.281-15.656-27.281c-2.336,0-9.344,0-9.344,0s0,10.216,0,13.125c0,5.491-2.631,15.656-15.406,15.656c-15.91,0-19.476,0-26.532,0c-3.892,0-14.906,1.896-14.906,14.406c0,14.475,0,18.265,0,24.219C28.366,100.497,31.562,109.923,55.397,109.923z M70.148,101.454c-2.662,0-4.813-2.151-4.813-4.813s2.15-4.813,4.813-4.813c2.661,0,4.813,2.151,4.813,4.813S72.809,101.454,70.148,101.454z"/>
               </svg>
             </a>
           )}

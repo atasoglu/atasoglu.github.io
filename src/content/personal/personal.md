@@ -6,6 +6,7 @@ github: "atasoglu"
 linkedin: "https://www.linkedin.com/in/ahmet-ata%C5%9Fo%C4%9Flu/"
 huggingface: "https://huggingface.co/atasoglu"
 medium: "https://ahmetatasoglu98.medium.com"
+pypi: "https://pypi.org/user/atasoglu/"
 avatar: "avatar.jpg"
 cv: "cv.pdf"
 interests: ["NLP", "LLMs", "Robotics"]
