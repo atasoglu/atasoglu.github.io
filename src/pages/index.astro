@@ -13,6 +13,7 @@ const personalEntries = await getCollection('personal');
 const experienceEntries = await getCollection('experiences');
 const projectEntries = await getCollection('projects');
 const skillEntries = await getCollection('skills');
+const postEntries = await getCollection('posts');
 
 // Get first (and only) personal entry
 const personal = personalEntries[0]?.data || {
@@ -36,6 +37,16 @@ const projects = projectEntries.map(entry => entry.data);
 // Group skills by category
 const skills = skillEntries.map(entry => entry.data);
 
+// Get recent posts (sorted by date, newest first, limit to 3)
+const posts = postEntries
+  .map(entry => entry.data)
+  .sort((a, b) => {
+    const dateA = new Date(a.date).getTime();
+    const dateB = new Date(b.date).getTime();
+    return dateB - dateA;
+  })
+  .slice(0, 3);
+
 const siteUrl = 'https://yourusername.github.io/my-portfolio';
 const pageTitle = `${personal.name} - ${personal.title}`;
 const pageDescription = personal.bio || 'Personal portfolio website';
@@ -54,6 +65,15 @@ const pageDescription = personal.bio || 'Personal portfolio website';
       title={personal.title}
       bio={personal.bio}
       avatar={personal.avatar}
+      university={personal.university}
+      email={personal.email}
+      linkedin={personal.linkedin}
+      github={personal.github}
+      twitter={personal.twitter}
+      scholar={personal.scholar}
+      cv={personal.cv}
+      interests={personal.interests}
+      posts={posts}
     />
     <About
       bio={personal.bio}

@@ -9,4 +9,7 @@ github: "loremipsum"
 linkedin: "https://linkedin.com/in/loremipsum"
 twitter: "@loremipsum"
 avatar: "/avatar.jpg"
+university: "Example University"
+cv: "https://example.com/cv.pdf"
+interests: ["Web Development", "UI/UX Design", "Machine Learning"]
 ---

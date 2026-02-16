@@ -1,7 +1,7 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, z } from "astro:content";
 
 const personalCollection = defineCollection({
-  type: 'content',
+  type: "content",
   schema: z.object({
     name: z.string(),
     title: z.string(),
@@ -12,12 +12,16 @@ const personalCollection = defineCollection({
     github: z.string().optional(),
     linkedin: z.string().url().optional(),
     twitter: z.string().optional(),
+    scholar: z.string().url().optional(),
     avatar: z.string().optional(),
+    university: z.string().optional(),
+    cv: z.string().url().optional(),
+    interests: z.array(z.string()).optional(),
   }),
 });
 
 const experienceCollection = defineCollection({
-  type: 'content',
+  type: "content",
   schema: z.object({
     title: z.string(),
     company: z.string(),
@@ -30,7 +34,7 @@ const experienceCollection = defineCollection({
 });
 
 const projectsCollection = defineCollection({
-  type: 'content',
+  type: "content",
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -43,10 +47,20 @@ const projectsCollection = defineCollection({
 });
 
 const skillsCollection = defineCollection({
-  type: 'content',
+  type: "content",
   schema: z.object({
     category: z.string(),
     items: z.array(z.string()),
+  }),
+});
+
+const postsCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    date: z.string(),
+    url: z.string().url().optional(),
   }),
 });
 
@@ -55,4 +69,5 @@ export const collections = {
   experiences: experienceCollection,
   projects: projectsCollection,
   skills: skillsCollection,
+  posts: postsCollection,
 };
