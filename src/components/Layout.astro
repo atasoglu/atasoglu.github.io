@@ -1,0 +1,35 @@
+---
+import Header from './Header.astro';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<Header />
+<main>
+  <slot />
+</main>
+<footer class="footer">
+  <div class="container">
+    <p>&copy; {new Date().getFullYear()} {title}. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--color-bg-alt);
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+    border-top: 1px solid var(--color-border);
+    margin-top: var(--spacing-2xl);
+  }
+  
+  .footer p {
+    color: var(--color-text-light);
+    margin: 0;
+    font-size: 0.9rem;
+  }
+</style>

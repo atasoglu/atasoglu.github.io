@@ -1,0 +1,65 @@
+---
+import { generateStructuredData } from '../utils/seo';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalURL?: string;
+  ogImage?: string;
+  personalData?: any;
+  siteUrl?: string;
+}
+
+const {
+  title,
+  description,
+  canonicalURL,
+  ogImage,
+  personalData,
+  siteUrl = 'https://yourusername.github.io/my-portfolio',
+} = Astro.props;
+
+const structuredData = personalData
+  ? generateStructuredData(personalData, siteUrl)
+  : null;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="portfolio, developer, web developer, full stack developer" />
+    <meta name="author" content={personalData?.name || 'Portfolio'} />
+    
+    {canonicalURL && <link rel="canonical" href={canonicalURL} />}
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    {canonicalURL && <meta property="og:url" content={canonicalURL} />}
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
+    
+    {structuredData && (
+      <>
+        <script type="application/ld+json" set:html={JSON.stringify(structuredData.person)} />
+        <script type="application/ld+json" set:html={JSON.stringify(structuredData.website)} />
+      </>
+    )}
+    
+    <link rel="icon" type="image/x-icon" href={`${import.meta.env.BASE_URL}favicon.ico`} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

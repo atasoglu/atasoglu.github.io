@@ -1,0 +1,115 @@
+---
+interface Props {
+  name: string;
+  title: string;
+  bio: string;
+  avatar?: string;
+}
+
+const { name, title, bio, avatar } = Astro.props;
+
+// Handle avatar path with base URL
+const avatarPath = avatar?.startsWith('/') 
+  ? `${import.meta.env.BASE_URL}${avatar.slice(1)}` 
+  : avatar;
+---
+
+<section id="home" class="hero">
+  <div class="container">
+    <div class="hero-content">
+      {avatarPath && (
+        <div class="hero-avatar">
+          <img src={avatarPath} alt={`${name} profile picture`} width="200" height="200" />
+        </div>
+      )}
+      <h1 class="hero-name">{name}</h1>
+      <p class="hero-title">{title}</p>
+      <p class="hero-bio">{bio}</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn">View Projects</a>
+        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, var(--color-bg-alt) 0%, var(--color-bg) 100%);
+    padding: var(--spacing-2xl) 0;
+  }
+  
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero-avatar {
+    margin: 0 auto var(--spacing-lg);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--color-primary);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+  
+  .hero-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .hero-name {
+    margin-bottom: var(--spacing-sm);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+  }
+  
+  .hero-title {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+  }
+  
+  .hero-bio {
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-xl);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  
+  .hero-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 70vh;
+    }
+    
+    .hero-avatar {
+      width: 150px;
+      height: 150px;
+    }
+  }
+</style>

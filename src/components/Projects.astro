@@ -1,0 +1,103 @@
+---
+interface Project {
+  title: string;
+  description: string;
+  url?: string;
+  github?: string;
+  technologies: string[];
+  featured?: boolean;
+}
+
+interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props;
+---
+
+<section id="projects" class="projects">
+  <div class="container">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid grid grid-3">
+      {projects.map((project) => (
+        <article class="project-card card">
+          <h3>{project.title}</h3>
+          <p>{project.description}</p>
+          <div class="project-technologies">
+            {project.technologies.map((tech) => (
+              <span class="tech-tag">{tech}</span>
+            ))}
+          </div>
+          <div class="project-links">
+            {project.url && (
+              <a href={project.url} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                View Live
+              </a>
+            )}
+            {project.github && (
+              <a href={project.github} target="_blank" rel="noopener noreferrer" class="btn">
+                View Code
+              </a>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects-grid {
+    margin-top: var(--spacing-xl);
+  }
+  
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .project-card h3 {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.5rem;
+    color: var(--color-text);
+  }
+  
+  .project-card p {
+    flex-grow: 1;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.7;
+  }
+  
+  .project-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .tech-tag {
+    background-color: var(--color-bg-alt);
+    color: var(--color-text);
+    padding: 0.25rem 0.75rem;
+    border-radius: calc(var(--border-radius) / 2);
+    font-size: 0.85rem;
+    font-family: var(--font-mono);
+  }
+  
+  .project-links {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+  }
+  
+  .project-links .btn {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+    font-size: 0.9rem;
+    padding: var(--spacing-xs) var(--spacing-md);
+  }
+</style>

@@ -1,0 +1,73 @@
+---
+import { getCollection } from 'astro:content';
+import Page from '../layouts/Page.astro';
+import Layout from '../components/Layout.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Experience from '../components/Experience.astro';
+import Projects from '../components/Projects.astro';
+import Contact from '../components/Contact.astro';
+
+// Get all content
+const personalEntries = await getCollection('personal');
+const experienceEntries = await getCollection('experiences');
+const projectEntries = await getCollection('projects');
+const skillEntries = await getCollection('skills');
+
+// Get first (and only) personal entry
+const personal = personalEntries[0]?.data || {
+  name: 'Lorem Ipsum',
+  title: 'Full Stack Developer',
+  bio: 'Lorem ipsum dolor sit amet...',
+};
+
+// Sort experiences by start date (newest first)
+const experiences = experienceEntries
+  .map(entry => entry.data)
+  .sort((a, b) => {
+    const dateA = new Date(a.startDate).getTime();
+    const dateB = new Date(b.startDate).getTime();
+    return dateB - dateA;
+  });
+
+// Get all projects
+const projects = projectEntries.map(entry => entry.data);
+
+// Group skills by category
+const skills = skillEntries.map(entry => entry.data);
+
+const siteUrl = 'https://yourusername.github.io/my-portfolio';
+const pageTitle = `${personal.name} - ${personal.title}`;
+const pageDescription = personal.bio || 'Personal portfolio website';
+---
+
+<Page
+  title={pageTitle}
+  description={pageDescription}
+  canonicalURL={siteUrl}
+  personalData={personal}
+  siteUrl={siteUrl}
+>
+  <Layout title={personal.name}>
+    <Hero
+      name={personal.name}
+      title={personal.title}
+      bio={personal.bio}
+      avatar={personal.avatar}
+    />
+    <About
+      bio={personal.bio}
+      location={personal.location}
+      skills={skills}
+    />
+    <Experience experiences={experiences} />
+    <Projects projects={projects} />
+    <Contact
+      email={personal.email}
+      website={personal.website}
+      github={personal.github}
+      linkedin={personal.linkedin}
+      twitter={personal.twitter}
+    />
+  </Layout>
+</Page>

@@ -1,0 +1,107 @@
+---
+interface Props {
+  bio: string;
+  location?: string;
+  skills: Array<{ category: string; items: string[] }>;
+}
+
+const { bio, location, skills } = Astro.props;
+---
+
+<section id="about" class="about">
+  <div class="container">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-content">
+      <div class="about-text">
+        <p>{bio}</p>
+        {location && (
+          <p class="location">
+            <strong>Location:</strong> {location}
+          </p>
+        )}
+      </div>
+      <div class="skills">
+        <h3>Skills</h3>
+        {skills.map((skillGroup) => (
+          <div class="skill-group">
+            <h4>{skillGroup.category}</h4>
+            <div class="skill-tags">
+              {skillGroup.items.map((skill) => (
+                <span class="skill-tag">{skill}</span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    background-color: var(--color-bg-alt);
+  }
+  
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: start;
+  }
+  
+  .about-text {
+    font-size: 1.125rem;
+    line-height: 1.8;
+  }
+  
+  .about-text p {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .location {
+    margin-top: var(--spacing-md);
+  }
+  
+  .skills h3 {
+    margin-bottom: var(--spacing-lg);
+    font-size: 1.5rem;
+  }
+  
+  .skill-group {
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .skill-group h4 {
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-primary);
+  }
+  
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+  }
+  
+  .skill-tag {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+    color: var(--color-text);
+    transition: var(--transition);
+  }
+  
+  .skill-tag:hover {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+  
+  @media (max-width: 768px) {
+    .about-content {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
