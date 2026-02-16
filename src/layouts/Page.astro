@@ -58,8 +58,153 @@ const structuredData = personalData
     )}
     
     <link rel="icon" type="image/x-icon" href={`${import.meta.env.BASE_URL}favicon.ico`} />
+    <script is:inline>
+      // Prevent flash of unstyled content by setting theme immediately
+      (function() {
+        const THEME_KEY = 'portfolio-theme';
+        const THEME_DARK = 'dark';
+        const THEME_LIGHT = 'light';
+        const THEME_AUTO = 'auto';
+        
+        function getSystemTheme() {
+          if (typeof window === 'undefined' || !window.matchMedia) {
+            return THEME_LIGHT;
+          }
+          return window.matchMedia('(prefers-color-scheme: dark)').matches ? THEME_DARK : THEME_LIGHT;
+        }
+        
+        function getTheme() {
+          if (typeof window === 'undefined') return getSystemTheme();
+          
+          const savedTheme = localStorage.getItem(THEME_KEY);
+          
+          // If no theme saved or set to 'auto', use system theme
+          if (!savedTheme || savedTheme === THEME_AUTO) {
+            return getSystemTheme();
+          }
+          
+          // Return saved theme if it's valid
+          if (savedTheme === THEME_DARK || savedTheme === THEME_LIGHT) {
+            return savedTheme;
+          }
+          
+          // Fallback to system theme
+          return getSystemTheme();
+        }
+        
+        function setTheme(theme) {
+          if (typeof document === 'undefined') return;
+          
+          const html = document.documentElement;
+          if (theme === THEME_DARK) {
+            html.setAttribute('data-theme', THEME_DARK);
+          } else {
+            html.removeAttribute('data-theme');
+          }
+        }
+        
+        // Initialize theme immediately
+        const theme = getTheme();
+        setTheme(theme);
+      })();
+    </script>
   </head>
   <body>
     <slot />
+    <script is:inline>
+      // Theme toggle functionality
+      (function() {
+        const THEME_KEY = 'portfolio-theme';
+        const THEME_DARK = 'dark';
+        const THEME_LIGHT = 'light';
+        const THEME_AUTO = 'auto';
+
+        function getSystemTheme() {
+          if (!window.matchMedia) {
+            return THEME_LIGHT;
+          }
+          return window.matchMedia('(prefers-color-scheme: dark)').matches ? THEME_DARK : THEME_LIGHT;
+        }
+
+        function getTheme() {
+          const savedTheme = localStorage.getItem(THEME_KEY);
+          
+          // If no theme saved or set to 'auto', use system theme
+          if (!savedTheme || savedTheme === THEME_AUTO) {
+            return getSystemTheme();
+          }
+          
+          // Return saved theme if it's valid
+          if (savedTheme === THEME_DARK || savedTheme === THEME_LIGHT) {
+            return savedTheme;
+          }
+          
+          // Fallback to system theme
+          return getSystemTheme();
+        }
+
+        function setTheme(theme, savePreference = true) {
+          const html = document.documentElement;
+          if (theme === THEME_DARK) {
+            html.setAttribute('data-theme', THEME_DARK);
+          } else {
+            html.removeAttribute('data-theme');
+          }
+          
+          // Save the actual theme value (not 'auto') when user manually changes
+          if (savePreference) {
+            localStorage.setItem(THEME_KEY, theme);
+          }
+        }
+
+        function toggleTheme() {
+          const currentTheme = getTheme();
+          const newTheme = currentTheme === THEME_DARK ? THEME_LIGHT : THEME_DARK;
+          setTheme(newTheme, true);
+        }
+
+        function initTheme() {
+          const theme = getTheme();
+          setTheme(theme, false);
+          
+          const toggleButton = document.getElementById('theme-toggle');
+          if (toggleButton) {
+            toggleButton.addEventListener('click', toggleTheme);
+          }
+          
+          // Listen for system theme changes
+          if (window.matchMedia) {
+            const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+            
+            // Check if user has manually set a theme
+            const savedTheme = localStorage.getItem(THEME_KEY);
+            const isAutoMode = !savedTheme || savedTheme === THEME_AUTO;
+            
+            // Only update if in auto mode (no manual preference)
+            if (isAutoMode) {
+              const handleChange = (e) => {
+                const systemTheme = e.matches ? THEME_DARK : THEME_LIGHT;
+                setTheme(systemTheme, false);
+              };
+              
+              // Modern browsers
+              if (mediaQuery.addEventListener) {
+                mediaQuery.addEventListener('change', handleChange);
+              } 
+              // Legacy browsers
+              else if (mediaQuery.addListener) {
+                mediaQuery.addListener(handleChange);
+              }
+            }
+          }
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initTheme);
+        } else {
+          initTheme();
+        }
+      })();
+    </script>
   </body>
 </html>
