@@ -30,7 +30,7 @@ const experienceCollection = defineCollection({
     location: z.string().optional(),
     startDate: z.string(),
     endDate: z.string().optional(),
-    description: z.string(),
+    description: z.array(z.string()),
     technologies: z.array(z.string()).optional(),
   }),
 });
