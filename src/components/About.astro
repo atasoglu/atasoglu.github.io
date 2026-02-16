@@ -22,16 +22,13 @@ const { bio, location, skills } = Astro.props;
       </div>
       <div class="skills">
         <h3>Skills</h3>
-        {skills.map((skillGroup) => (
-          <div class="skill-group">
-            <h4>{skillGroup.category}</h4>
-            <div class="skill-tags">
-              {skillGroup.items.map((skill) => (
-                <span class="skill-tag">{skill}</span>
-              ))}
-            </div>
-          </div>
-        ))}
+        <div class="skill-tags">
+          {skills.flatMap((skillGroup) => 
+            skillGroup.items.map((skill) => (
+              <span class="skill-tag">{skill}</span>
+            ))
+          )}
+        </div>
       </div>
     </div>
   </div>
@@ -46,7 +43,7 @@ const { bio, location, skills } = Astro.props;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-xl);
-    align-items: start;
+    align-items: center;
   }
   
   .about-text {
@@ -65,16 +62,6 @@ const { bio, location, skills } = Astro.props;
   .skills h3 {
     margin-bottom: var(--spacing-lg);
     font-size: 1.5rem;
-  }
-  
-  .skill-group {
-    margin-bottom: var(--spacing-lg);
-  }
-  
-  .skill-group h4 {
-    font-size: 1.125rem;
-    margin-bottom: var(--spacing-sm);
-    color: var(--color-primary);
   }
   
   .skill-tags {

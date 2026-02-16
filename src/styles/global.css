@@ -46,6 +46,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 20px;
 }
 
 body {
@@ -111,6 +112,7 @@ img {
 
 section {
   padding: var(--spacing-2xl) 0;
+  scroll-margin-top: 20px;
 }
 
 .section-title {
