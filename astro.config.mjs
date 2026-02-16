@@ -4,8 +4,8 @@ import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://yourusername.github.io', // GitHub Pages URL - update this
-  base: '/my-portfolio', // Repository name - update this if different
+  site: 'https://atasoglu.github.io',
+  base: '/', // Root path for user/org GitHub Pages sites (username.github.io)
   integrations: [
     sitemap(),
     mdx()
