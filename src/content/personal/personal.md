@@ -1,7 +1,6 @@
 ---
 name: "Ahmet Ataşoğlu"
 title: "Software Engineer"
-bio: "I am a software engineer working at the intersection of AI, robotics, and language models. I enjoy experimenting with LLMs and building tools that create new things. Outside of engineering, I love creating technical content, sharing ideas, and learning something new every day."
 email: "ahmetatasoglu98@gmail.com"
 github: "atasoglu"
 linkedin: "https://www.linkedin.com/in/ahmet-ata%C5%9Fo%C4%9Flu/"
@@ -11,3 +10,8 @@ avatar: "avatar.jpg"
 cv: "cv.pdf"
 interests: ["NLP", "LLMs", "Robotics"]
 ---
+
+- 🌱 I'm currently working on robotics, specifically embodied agents.
+- 🎤 I'm open to collaborations, research discussions, and speaking opportunities.
+- 💬 Ask me about Python, bio-inspired algorithms, natural language understanding, and robotics interfaces.
+- 🤭 **Fun fact:** I love watching mockumentaries.

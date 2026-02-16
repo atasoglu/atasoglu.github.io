@@ -5,7 +5,7 @@ const personalCollection = defineCollection({
   schema: z.object({
     name: z.string(),
     title: z.string(),
-    bio: z.string(),
+    bio: z.string().optional(),
     location: z.string().optional(),
     email: z.string().email().optional(),
     website: z.string().url().optional(),

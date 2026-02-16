@@ -16,11 +16,15 @@ const skillEntries = await getCollection('skills');
 const postEntries = await getCollection('posts');
 
 // Get first (and only) personal entry
-const personal = personalEntries[0]?.data || {
+const personalEntry = personalEntries[0];
+const personal = personalEntry?.data || {
   name: 'Lorem Ipsum',
   title: 'Full Stack Developer',
   bio: 'Lorem ipsum dolor sit amet...',
 };
+
+// Render markdown content for bio
+const { Content: BioContent } = personalEntry ? await personalEntry.render() : { Content: null };
 
 // Sort experiences by start date (newest first)
 const experiences = experienceEntries
@@ -49,7 +53,7 @@ const posts = postEntries
 
 const siteUrl = 'https://yourusername.github.io/my-portfolio';
 const pageTitle = `${personal.name} - ${personal.title}`;
-const pageDescription = personal.bio || 'Personal portfolio website';
+const pageDescription = personal.bio || personalEntry?.body || 'Personal portfolio website';
 ---
 
 <Page
@@ -64,6 +68,7 @@ const pageDescription = personal.bio || 'Personal portfolio website';
       name={personal.name}
       title={personal.title}
       bio={personal.bio}
+      BioContent={BioContent}
       avatar={personal.avatar}
       university={personal.university}
       email={personal.email}
@@ -79,6 +84,7 @@ const pageDescription = personal.bio || 'Personal portfolio website';
     />
     <About
       bio={personal.bio}
+      BioContent={BioContent}
       location={personal.location}
       skills={skills}
     />
