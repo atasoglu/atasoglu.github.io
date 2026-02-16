@@ -25,9 +25,16 @@ interface Props {
 const { name, title, bio, avatar, university, email, linkedin, github, twitter, scholar, cv, huggingface, medium, interests, posts } = Astro.props;
 
 // Handle avatar path with base URL
-const avatarPath = avatar?.startsWith('/') 
-  ? `${import.meta.env.BASE_URL}${avatar.slice(1)}` 
-  : avatar;
+const baseURL = import.meta.env.BASE_URL;
+const avatarPath = avatar
+  ? avatar.startsWith('http')
+    ? avatar  // External URL, use as-is
+    : avatar.startsWith('/')
+      ? `${baseURL}${avatar.slice(1)}`  // Absolute path, prepend base URL
+      : baseURL.endsWith('/')
+        ? `${baseURL}${avatar}`  // Relative path, base already has trailing slash
+        : `${baseURL}/${avatar}`  // Relative path, add slash between base and path
+  : undefined;
 ---
 
 <section id="home" class="hero">
