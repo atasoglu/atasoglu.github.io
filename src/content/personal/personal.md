@@ -7,9 +7,9 @@ email: "lorem@example.com"
 website: "https://example.com"
 github: "loremipsum"
 linkedin: "https://linkedin.com/in/loremipsum"
-twitter: "@loremipsum"
+huggingface: "https://huggingface.co/loremipsum"
+medium: "https://medium.com/@loremipsum"
 avatar: "/avatar.jpg"
-university: "Example University"
 cv: "https://example.com/cv.pdf"
 interests: ["Web Development", "UI/UX Design", "Machine Learning"]
 ---

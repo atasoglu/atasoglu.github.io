@@ -5,9 +5,11 @@ interface Props {
   github?: string;
   linkedin?: string;
   twitter?: string;
+  huggingface?: string;
+  medium?: string;
 }
 
-const { email, website, github, linkedin, twitter } = Astro.props;
+const { email, website, github, linkedin, twitter, huggingface, medium } = Astro.props;
 ---
 
 <section id="contact" class="contact">
@@ -41,6 +43,16 @@ const { email, website, github, linkedin, twitter } = Astro.props;
         {twitter && (
           <a href={`https://twitter.com/${twitter.replace('@', '')}`} target="_blank" rel="noopener noreferrer" class="contact-link">
             Twitter
+          </a>
+        )}
+        {huggingface && (
+          <a href={huggingface} target="_blank" rel="noopener noreferrer" class="contact-link">
+            HuggingFace
+          </a>
+        )}
+        {medium && (
+          <a href={medium} target="_blank" rel="noopener noreferrer" class="contact-link">
+            Medium
           </a>
         )}
       </div>
