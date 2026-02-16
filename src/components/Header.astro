@@ -8,18 +8,17 @@ const navItems = [
 ];
 ---
 
-<header class="header">
+<header class="header" id="main-header">
   <nav class="nav container">
     <a href="#home" class="logo">Portfolio</a>
     
-    <!-- Mobile menu button -->
-    <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
+    <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menüyü aç">
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
     
-    <div class="nav-right" id="nav-menu">
+    <div class="nav-menu" id="nav-menu">
       <ul class="nav-list">
         {navItems.map((item) => (
           <li>
@@ -27,8 +26,8 @@ const navItems = [
           </li>
         ))}
       </ul>
-      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-        <svg class="theme-icon sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <button id="theme-toggle" class="theme-toggle" aria-label="Tema değiştir">
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="5"></circle>
           <line x1="12" y1="1" x2="12" y2="3"></line>
           <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -39,7 +38,7 @@ const navItems = [
           <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
         </svg>
-        <svg class="theme-icon moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
       </button>
@@ -47,73 +46,33 @@ const navItems = [
   </nav>
 </header>
 
-<script>
-  // Mobile menu toggle
-  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-  const navMenu = document.getElementById('nav-menu');
-  const navLinks = document.querySelectorAll('.nav-link');
-  
-  if (mobileMenuToggle && navMenu) {
-    mobileMenuToggle.addEventListener('click', () => {
-      const isOpen = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
-      mobileMenuToggle.setAttribute('aria-expanded', (!isOpen).toString());
-      mobileMenuToggle.classList.toggle('active');
-      navMenu.classList.toggle('active');
-      document.body.classList.toggle('menu-open');
-    });
-    
-    // Close menu when clicking a nav link
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenuToggle.setAttribute('aria-expanded', 'false');
-        mobileMenuToggle.classList.remove('active');
-        navMenu.classList.remove('active');
-        document.body.classList.remove('menu-open');
-      });
-    });
-    
-    // Close menu on resize if open
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 768) {
-        mobileMenuToggle.setAttribute('aria-expanded', 'false');
-        mobileMenuToggle.classList.remove('active');
-        navMenu.classList.remove('active');
-        document.body.classList.remove('menu-open');
-      }
-    });
-  }
-</script>
-
 <style is:global>
+  /* ===== HEADER BASE ===== */
   .header {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--color-border);
     z-index: 1000;
     padding: var(--spacing-sm) 0;
-    transition: var(--transition);
+    transition: transform 0.3s ease;
   }
   
   html[data-theme="dark"] .header {
-    background-color: rgba(31, 41, 55, 0.95) !important;
-    backdrop-filter: blur(10px);
+    background-color: rgba(31, 41, 55, 0.95);
   }
   
-  /* Ensure text colors are visible in dark theme */
-  html[data-theme="dark"] .header .logo,
-  html[data-theme="dark"] .header .nav-link,
-  html[data-theme="dark"] .header .theme-toggle {
-    color: #f9fafb !important;
+  /* Header hidden state for mobile scroll */
+  .header.is-hidden {
+    transform: translateY(-100%);
   }
   
-  html[data-theme="dark"] .header .logo:hover {
-    color: #60a5fa !important;
-  }
-  
-  html[data-theme="dark"] .header .nav-link:hover {
-    color: #60a5fa !important;
+  /* Space for fixed header */
+  body {
+    padding-top: 60px;
   }
   
   .nav {
@@ -122,21 +81,32 @@ const navItems = [
     align-items: center;
   }
   
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-  }
-  
+  /* ===== LOGO ===== */
   .logo {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--color-text);
     z-index: 1002;
+    position: relative;
   }
   
   .logo:hover {
     color: var(--color-primary);
+  }
+  
+  html[data-theme="dark"] .logo {
+    color: #f9fafb;
+  }
+  
+  html[data-theme="dark"] .logo:hover {
+    color: #60a5fa;
+  }
+  
+  /* ===== NAV MENU ===== */
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
   }
   
   .nav-list {
@@ -169,6 +139,15 @@ const navItems = [
     width: 100%;
   }
   
+  html[data-theme="dark"] .nav-link {
+    color: #f9fafb;
+  }
+  
+  html[data-theme="dark"] .nav-link:hover {
+    color: #60a5fa;
+  }
+  
+  /* ===== THEME TOGGLE ===== */
   .theme-toggle {
     background: transparent;
     border: 2px solid var(--color-border);
@@ -178,141 +157,120 @@ const navItems = [
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: var(--transition);
     color: var(--color-text);
     width: 40px;
     height: 40px;
+    transition: all 0.3s ease;
   }
   
   .theme-toggle:hover {
     background-color: var(--color-bg-alt);
     border-color: var(--color-primary);
-    transform: scale(1.05);
   }
   
   html[data-theme="dark"] .theme-toggle {
-    color: #f9fafb !important;
-    border-color: #374151 !important;
+    color: #f9fafb;
+    border-color: #374151;
   }
   
   html[data-theme="dark"] .theme-toggle:hover {
-    background-color: #111827 !important;
-    border-color: #60a5fa !important;
+    background-color: #1f2937;
+    border-color: #60a5fa;
   }
   
-  .theme-icon {
-    transition: var(--transition);
-  }
+  .moon-icon { display: none; }
+  html[data-theme="dark"] .sun-icon { display: none; }
+  html[data-theme="dark"] .moon-icon { display: block; }
   
-  .moon-icon {
-    display: none;
-  }
-  
-  html[data-theme="dark"] .sun-icon {
-    display: none;
-  }
-  
-  html[data-theme="dark"] .moon-icon {
-    display: block;
-  }
-  
-  /* Mobile menu toggle button */
-  .mobile-menu-toggle {
+  /* ===== MOBILE MENU BUTTON ===== */
+  .mobile-menu-btn {
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     background: transparent;
     border: none;
     cursor: pointer;
-    padding: var(--spacing-xs);
+    padding: 10px;
+    gap: 6px;
     z-index: 1002;
-    gap: 5px;
+    position: relative;
   }
   
-  .hamburger-line {
+  .mobile-menu-btn span {
     display: block;
     width: 24px;
     height: 2px;
     background-color: var(--color-text);
-    transition: all 0.3s ease;
     border-radius: 2px;
+    transition: all 0.3s ease;
   }
   
-  html[data-theme="dark"] .hamburger-line {
+  html[data-theme="dark"] .mobile-menu-btn span {
     background-color: #f9fafb;
   }
   
-  .mobile-menu-toggle.active .hamburger-line:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
+  /* Hamburger to X animation */
+  .mobile-menu-btn.is-active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
   }
   
-  .mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+  .mobile-menu-btn.is-active span:nth-child(2) {
     opacity: 0;
   }
   
-  .mobile-menu-toggle.active .hamburger-line:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+  .mobile-menu-btn.is-active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
   }
   
-  /* Prevent body scroll when menu is open */
-  body.menu-open {
-    overflow: hidden;
-  }
-  
+  /* ===== MOBILE STYLES ===== */
   @media (max-width: 768px) {
-    .mobile-menu-toggle {
+    body {
+      padding-top: 56px;
+    }
+    
+    .mobile-menu-btn {
       display: flex;
     }
     
-    .nav-right {
+    .nav-menu {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100vw;
+      right: 0;
+      bottom: 0;
+      width: 100%;
       height: 100vh;
-      background: #ffffff;
+      height: 100dvh;
+      background-color: #ffffff;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: var(--spacing-xl);
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
+      gap: 2rem;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
       z-index: 1001;
     }
     
-    html[data-theme="dark"] .nav-right {
-      background: #111827;
+    html[data-theme="dark"] .nav-menu {
+      background-color: #111827;
     }
     
-    .nav-right.active {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
+    .nav-menu.is-open {
+      transform: translateX(0);
     }
     
     .nav-list {
       flex-direction: column;
       align-items: center;
-      gap: var(--spacing-xl);
+      gap: 1.5rem;
     }
     
     .nav-link {
       font-size: 1.5rem;
-      padding: var(--spacing-sm) var(--spacing-lg);
-      color: var(--color-text);
-    }
-    
-    html[data-theme="dark"] .nav-right .nav-link {
-      color: #f9fafb;
-    }
-    
-    html[data-theme="dark"] .nav-right .nav-link:hover {
-      color: #60a5fa;
+      padding: 0.5rem 1rem;
     }
     
     .theme-toggle {
@@ -320,9 +278,9 @@ const navItems = [
       height: 48px;
     }
     
-    html[data-theme="dark"] .nav-right .theme-toggle {
-      color: #f9fafb;
-      border-color: #374151;
+    /* Body scroll lock when menu open */
+    body.menu-is-open {
+      overflow: hidden;
     }
   }
   
@@ -330,5 +288,84 @@ const navItems = [
     .logo {
       font-size: 1.25rem;
     }
+    
+    .nav-link {
+      font-size: 1.25rem;
+    }
   }
 </style>
+
+<script>
+  // Wait for DOM
+  document.addEventListener('DOMContentLoaded', () => {
+    const header = document.getElementById('main-header');
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    // Mobile menu toggle
+    if (menuBtn && navMenu) {
+      menuBtn.addEventListener('click', () => {
+        menuBtn.classList.toggle('is-active');
+        navMenu.classList.toggle('is-open');
+        document.body.classList.toggle('menu-is-open');
+      });
+      
+      // Close menu when clicking nav links
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          menuBtn.classList.remove('is-active');
+          navMenu.classList.remove('is-open');
+          document.body.classList.remove('menu-is-open');
+        });
+      });
+    }
+    
+    // Hide/show header on scroll (mobile only)
+    let lastScroll = 0;
+    let scrollTimer = null;
+    
+    window.addEventListener('scroll', () => {
+      // Only on mobile
+      if (window.innerWidth > 768) {
+        header?.classList.remove('is-hidden');
+        return;
+      }
+      
+      // Don't hide when menu is open
+      if (document.body.classList.contains('menu-is-open')) {
+        return;
+      }
+      
+      const currentScroll = window.pageYOffset;
+      
+      // At top of page - always show
+      if (currentScroll <= 50) {
+        header?.classList.remove('is-hidden');
+        lastScroll = currentScroll;
+        return;
+      }
+      
+      // Scrolling down - hide
+      if (currentScroll > lastScroll + 10) {
+        header?.classList.add('is-hidden');
+      }
+      // Scrolling up - show
+      else if (currentScroll < lastScroll - 10) {
+        header?.classList.remove('is-hidden');
+      }
+      
+      lastScroll = currentScroll;
+    }, { passive: true });
+    
+    // Reset on resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        menuBtn?.classList.remove('is-active');
+        navMenu?.classList.remove('is-open');
+        document.body.classList.remove('menu-is-open');
+        header?.classList.remove('is-hidden');
+      }
+    });
+  });
+</script>
