@@ -128,8 +128,79 @@ const { projects } = Astro.props;
   }
   
   @media (max-width: 768px) {
+    .projects-list {
+      gap: var(--spacing-md);
+    }
+    
+    .project-card {
+      padding: var(--spacing-md);
+    }
+    
     .project-header {
       flex-direction: column;
+      gap: var(--spacing-sm);
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .project-card h3 {
+      font-size: 1.25rem;
+    }
+    
+    .project-card p {
+      line-height: 1.6;
+    }
+    
+    .project-links {
+      width: 100%;
+    }
+    
+    .project-links .btn {
+      flex: 1;
+      justify-content: center;
+    }
+    
+    .tech-tag {
+      font-size: 0.8rem;
+      padding: 0.2rem 0.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .projects-list {
+      gap: var(--spacing-sm);
+    }
+    
+    .project-card {
+      padding: var(--spacing-sm) var(--spacing-md);
+    }
+    
+    .project-card h3 {
+      font-size: 1.125rem;
+    }
+    
+    .project-card p {
+      font-size: 0.9rem;
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .project-links {
+      flex-direction: column;
+    }
+    
+    .project-links .btn {
+      width: 100%;
+      font-size: 0.85rem;
+      padding: var(--spacing-sm);
+    }
+    
+    .project-technologies {
+      margin-top: var(--spacing-sm);
+      padding-top: var(--spacing-sm);
+    }
+    
+    .tech-tag {
+      font-size: 0.75rem;
+      padding: 0.15rem 0.4rem;
     }
   }
 </style>

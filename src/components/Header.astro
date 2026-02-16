@@ -11,7 +11,15 @@ const navItems = [
 <header class="header">
   <nav class="nav container">
     <a href="#home" class="logo">Portfolio</a>
-    <div class="nav-right">
+    
+    <!-- Mobile menu button -->
+    <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+    
+    <div class="nav-right" id="nav-menu">
       <ul class="nav-list">
         {navItems.map((item) => (
           <li>
@@ -39,6 +47,43 @@ const navItems = [
   </nav>
 </header>
 
+<script>
+  // Mobile menu toggle
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
+  const navLinks = document.querySelectorAll('.nav-link');
+  
+  if (mobileMenuToggle && navMenu) {
+    mobileMenuToggle.addEventListener('click', () => {
+      const isOpen = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+      mobileMenuToggle.setAttribute('aria-expanded', (!isOpen).toString());
+      mobileMenuToggle.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      document.body.classList.toggle('menu-open');
+    });
+    
+    // Close menu when clicking a nav link
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        mobileMenuToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      });
+    });
+    
+    // Close menu on resize if open
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        mobileMenuToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      }
+    });
+  }
+</script>
+
 <style is:global>
   .header {
     position: sticky;
@@ -52,7 +97,7 @@ const navItems = [
   }
   
   html[data-theme="dark"] .header {
-    background-color: #1f2937 !important;
+    background-color: rgba(31, 41, 55, 0.95) !important;
     backdrop-filter: blur(10px);
   }
   
@@ -87,6 +132,7 @@ const navItems = [
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--color-text);
+    z-index: 1002;
   }
   
   .logo:hover {
@@ -170,15 +216,119 @@ const navItems = [
     display: block;
   }
   
+  /* Mobile menu toggle button */
+  .mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    z-index: 1002;
+    gap: 5px;
+  }
+  
+  .hamburger-line {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-text);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+  
+  html[data-theme="dark"] .hamburger-line {
+    background-color: #f9fafb;
+  }
+  
+  .mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  
+  .mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+  
+  /* Prevent body scroll when menu is open */
+  body.menu-open {
+    overflow: hidden;
+  }
+  
   @media (max-width: 768px) {
+    .mobile-menu-toggle {
+      display: flex;
+    }
+    
+    .nav-right {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #ffffff;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: var(--spacing-xl);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      z-index: 1001;
+    }
+    
+    html[data-theme="dark"] .nav-right {
+      background: #111827;
+    }
+    
+    .nav-right.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    
     .nav-list {
-      gap: var(--spacing-sm);
-      font-size: 0.9rem;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--spacing-xl);
+    }
+    
+    .nav-link {
+      font-size: 1.5rem;
+      padding: var(--spacing-sm) var(--spacing-lg);
+      color: var(--color-text);
+    }
+    
+    html[data-theme="dark"] .nav-right .nav-link {
+      color: #f9fafb;
+    }
+    
+    html[data-theme="dark"] .nav-right .nav-link:hover {
+      color: #60a5fa;
     }
     
     .theme-toggle {
-      width: 36px;
-      height: 36px;
+      width: 48px;
+      height: 48px;
+    }
+    
+    html[data-theme="dark"] .nav-right .theme-toggle {
+      color: #f9fafb;
+      border-color: #374151;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .logo {
+      font-size: 1.25rem;
     }
   }
 </style>

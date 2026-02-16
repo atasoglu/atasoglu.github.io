@@ -32,4 +32,21 @@ const { title } = Astro.props;
     margin: 0;
     font-size: 0.9rem;
   }
+  
+  @media (max-width: 768px) {
+    .footer {
+      margin-top: var(--spacing-xl);
+      padding: var(--spacing-md) 0;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .footer {
+      margin-top: var(--spacing-lg);
+    }
+    
+    .footer p {
+      font-size: 0.8rem;
+    }
+  }
 </style>

@@ -115,6 +115,52 @@ const { AboutContent, location, skills } = Astro.props;
   @media (max-width: 768px) {
     .about-content {
       grid-template-columns: 1fr;
+      gap: var(--spacing-lg);
+    }
+    
+    .about-text {
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    
+    .about-text li {
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    
+    .skills h3 {
+      font-size: 1.25rem;
+      margin-bottom: var(--spacing-md);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .about-content {
+      gap: var(--spacing-md);
+    }
+    
+    .about-text {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    
+    .about-text p {
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .about-text li {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    
+    .skills h3 {
+      font-size: 1.125rem;
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .skill-tag {
+      font-size: 0.8rem;
+      padding: var(--spacing-xs) var(--spacing-sm);
     }
   }
 </style>
