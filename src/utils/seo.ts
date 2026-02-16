@@ -20,8 +20,8 @@ export function generateSEOTags(config: SEOConfig) {
   const tags = [
     { tag: 'title', content: title },
     { tag: 'meta', attrs: { name: 'description', content: description } },
-    { tag: 'meta', attrs: { name: 'keywords', content: 'portfolio, developer, web developer, full stack developer' } },
-    { tag: 'meta', attrs: { name: 'author', content: 'Lorem Ipsum' } },
+    { tag: 'meta', attrs: { name: 'keywords', content: 'Ahmet Ataşoğlu, AI Engineer, NLP, LLMs, Robotics, Embodied Agents, Software Engineer, Machine Learning' } },
+    { tag: 'meta', attrs: { name: 'author', content: 'Ahmet Ataşoğlu' } },
     { tag: 'meta', attrs: { name: 'viewport', content: 'width=device-width, initial-scale=1.0' } },
     { tag: 'meta', attrs: { charset: 'utf-8' } },
   ];

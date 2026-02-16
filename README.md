@@ -1,6 +1,6 @@
-# Personal Portfolio Website
+# Ahmet Ataşoğlu - Personal Portfolio
 
-SEO-friendly, minimal single-page portfolio website built with Astro and deployable to GitHub Pages.
+SEO-friendly, minimal single-page portfolio website showcasing AI/ML engineering work, built with Astro and deployed to GitHub Pages.
 
 ## Features
 
@@ -43,8 +43,8 @@ my-portfolio/
 
 1. Clone the repository:
 ```bash
-git clone <your-repo-url>
-cd my-portfolio
+git clone https://github.com/atasoglu/atasoglu.github.io.git
+cd atasoglu.github.io
 ```
 
 2. Install dependencies:
@@ -74,17 +74,17 @@ The dev server will be accessible on port 4321.
 
 All content is managed through Markdown files in the `src/content/` directory:
 
-### Personal Information (`src/content/personal.md`)
+### Personal Information (`src/content/personal/personal.md`)
 
 Edit this file to update your personal information:
 
 ```markdown
 ---
-name: "Your Name"
-title: "Your Title"
-bio: "Your bio here..."
-location: "Your Location"
-email: "your@email.com"
+name: "Ahmet Ataşoğlu"
+title: "Software Engineer"
+email: "ahmetatasoglu98@gmail.com"
+github: "atasoglu"
+linkedin: "https://www.linkedin.com/in/ahmet-ata%C5%9Fo%C4%9Flu/"
 # ... other fields
 ---
 ```
@@ -140,19 +140,17 @@ The built site will be in the `dist/` directory.
 
 ## Deployment to GitHub Pages
 
+This portfolio is deployed at: **https://atasoglu.github.io**
+
 ### Setup
 
-1. Update `astro.config.mjs`:
-   - Set `site` to your GitHub Pages URL: `https://yourusername.github.io`
-   - Set `base` to your repository name: `/your-repo-name`
+1. The `astro.config.mjs` is configured with:
+   - `site`: `https://atasoglu.github.io`
+   - `base`: `/` (root path for user/org GitHub Pages)
 
-2. Push your code to GitHub
+2. GitHub Pages is configured to use GitHub Actions for deployment
 
-3. Enable GitHub Pages:
-   - Go to your repository Settings → Pages
-   - Source: Select "GitHub Actions"
-
-4. The GitHub Actions workflow will automatically deploy on every push to `main`
+3. The site automatically deploys on every push to `main` branch
 
 ### Manual Deployment
 
@@ -185,10 +183,21 @@ Edit `src/styles/global.css` to customize colors, fonts, and spacing. CSS variab
 
 All components are in `src/components/`. Modify them to change the layout and structure.
 
+## About
+
+This portfolio showcases my work in:
+- Natural Language Processing (NLP)
+- Large Language Models (LLMs)
+- Embodied AI and Robotics
+- Software Engineering
+
+## Technologies Used
+
+- **Framework**: [Astro](https://astro.build/) - Static Site Generator
+- **Styling**: Vanilla CSS with CSS Variables for theming
+- **Deployment**: GitHub Pages with GitHub Actions
+- **Content**: Markdown-based content management
+
 ## License
 
 MIT
-
-## Credits
-
-Built with [Astro](https://astro.build/)

@@ -1,8 +1,8 @@
 {
-  "name": "my-portfolio",
+  "name": "atasoglu-portfolio",
   "type": "module",
   "version": "1.0.0",
-  "description": "SEO-friendly personal portfolio website",
+  "description": "Ahmet Ataşoğlu's personal portfolio - AI Engineer specializing in NLP, LLMs, and Robotics",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

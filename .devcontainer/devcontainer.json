@@ -1,5 +1,5 @@
 {
-  "name": "Portfolio Dev Container",
+  "name": "Ataşoğlu Portfolio Dev Container",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bullseye",
   "features": {},
   "forwardPorts": [4321],

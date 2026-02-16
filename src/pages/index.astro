@@ -18,9 +18,9 @@ const postEntries = await getCollection('posts');
 // Get first (and only) personal entry
 const personalEntry = personalEntries[0];
 const personal = personalEntry?.data || {
-  name: 'Lorem Ipsum',
-  title: 'Full Stack Developer',
-  bio: 'Lorem ipsum dolor sit amet...',
+  name: 'Ahmet Ataşoğlu',
+  title: 'Software Engineer',
+  bio: "I'm a Software Engineer passionate about AI, NLP, and robotics.",
 };
 
 // Render markdown content for bio
@@ -51,7 +51,7 @@ const posts = postEntries
   })
   .slice(0, 3);
 
-const siteUrl = 'https://yourusername.github.io/my-portfolio';
+const siteUrl = import.meta.env.SITE || 'https://atasoglu.github.io';
 const pageTitle = `${personal.name} - ${personal.title}`;
 const pageDescription = personal.bio || personalEntry?.body || 'Personal portfolio website';
 ---
