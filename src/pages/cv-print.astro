@@ -37,6 +37,29 @@ const canonicalURL = new URL("cv-print", siteUrl).toString();
     </header>
 
     <section class="cv-section">
+      <h2>Experience</h2>
+      {cv.experience.map((item) => (
+        <article class="cv-item">
+          <div class="item-top">
+            <div class="item-left">
+              <p class="strong-inline">{item.company}</p>
+              <p>{item.role}</p>
+            </div>
+            <div class="item-right">
+              <p>{item.date}</p>
+              {item.location && <p>{item.location}</p>}
+            </div>
+          </div>
+          <ul>
+            {item.bullets.map((bullet) => (
+              <li>{bullet}</li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </section>
+
+    <section class="cv-section">
       <h2>Education</h2>
       {cv.education.map((item) => (
         <article class="cv-item">
@@ -73,62 +96,6 @@ const canonicalURL = new URL("cv-print", siteUrl).toString();
           </p>
         ))}
       </div>
-    </section>
-
-    {cv.publications && cv.publications.length > 0 && (
-      <section class="cv-section">
-        <h2>Publications</h2>
-        {cv.publications.map((publication) => (
-          <article class="cv-item">
-            <div class="item-top">
-              <div class="item-left">
-                <p class="strong-inline">{publication.title}</p>
-                {publication.venue && <p>{publication.venue}</p>}
-                {publication.links && publication.links.length > 0 && (
-                  <p>
-                    {publication.links.map((link, index) => (
-                      <>
-                        {index > 0 && <span> | </span>}
-                        <a href={link.url} target="_blank" rel="noopener noreferrer">
-                          {link.label}
-                        </a>
-                      </>
-                    ))}
-                  </p>
-                )}
-                {publication.authors && <p class="authors">{publication.authors}</p>}
-              </div>
-              <div class="item-right">
-                {publication.status && <p>{publication.status}</p>}
-                {publication.date && <p>{publication.date}</p>}
-              </div>
-            </div>
-          </article>
-        ))}
-      </section>
-    )}
-
-    <section class="cv-section">
-      <h2>Experience</h2>
-      {cv.experience.map((item) => (
-        <article class="cv-item">
-          <div class="item-top">
-            <div class="item-left">
-              <p class="strong-inline">{item.company}</p>
-              <p>{item.role}</p>
-            </div>
-            <div class="item-right">
-              <p>{item.date}</p>
-              {item.location && <p>{item.location}</p>}
-            </div>
-          </div>
-          <ul>
-            {item.bullets.map((bullet) => (
-              <li>{bullet}</li>
-            ))}
-          </ul>
-        </article>
-      ))}
     </section>
   </main>
 </Page>
