@@ -114,7 +114,7 @@ activities:
     date: "Sept 2021 - May 2022"
     category: "Education"
     bullets:
-      - "Taught courses on Robotics, Artificial Intelligence, Mobile Programming, and Cybersecurity to middle and high school students."
+      - "Taught courses on programming, robotics and AI to middle and high school students."
       - "Mentored two student teams on their Teknofest projects."
 ---
 
