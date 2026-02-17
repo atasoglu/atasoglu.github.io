@@ -408,14 +408,72 @@ html[data-theme="dark"] body {
     justify-content: flex-start;
   }
 
-  .item-right {
-    min-width: auto;
-    text-align: left;
-  }
-
   .item-top {
     flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+  }
+
+  .item-left {
+    width: 100%;
+  }
+
+  .cv-page .item-right {
+    min-width: auto;
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    align-items: center;
+  }
+
+  .cv-page .item-right p {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cv-page {
+    padding: 16px;
+    font-size: 11px;
+  }
+
+  .cv-header-info h1 {
+    font-size: 22px;
+  }
+
+  .cv-page .cv-title {
+    font-size: 12px;
+  }
+
+  .cv-avatar {
+    width: 64px;
+    height: 64px;
+  }
+
+  .cv-section h2 {
+    font-size: 14px;
+  }
+
+  .cv-item p,
+  .item-right p,
+  .cv-item li,
+  .skills-grid p {
+    font-size: 11px;
+  }
+
+  .cv-page .item-right {
+    flex-direction: column;
+    align-items: flex-start;
     gap: 2px;
+  }
+
+  .cv-item ul {
+    margin-left: 12px;
+  }
+
+  .cv-introduction ul {
+    margin-left: 12px;
   }
 }
 
