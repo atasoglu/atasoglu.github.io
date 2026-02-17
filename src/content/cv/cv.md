@@ -10,19 +10,19 @@ github: "https://github.com/atasoglu"
 
 education:
   - degree: "MS"
-    school: "University Name"
-    department: "Department Name"
-    location: "City, Country"
-    date: "Aug 2024 - Expected May 2026"
+    school: "Selcuk University"
+    department: "Mechatronics Engineering"
+    location: "Konya, Turkey"
+    date: "Sept 2025 - Present"
     highlights:
-      - "Focus: Computer Vision, Machine Learning, Multimodal Models"
+      - "Focus: Multimodal Models, Embodied Agents"
   - degree: "BS"
-    school: "University Name"
-    department: "Department Name"
-    location: "City, Country"
-    date: "Sept 2019 - Feb 2024"
+    school: "Necmettin Erbakan University"
+    department: "Mechatronics Engineering"
+    location: "Konya, Turkey"
+    date: "Sept 2017 - June 2021"
     highlights:
-      - "Minor: Business Analytics (optional)"
+      - "Minor: Computer Engineering"
 
 skills:
   - label: "Languages"
@@ -78,7 +78,7 @@ publications:
     authors: "Ahmet Ataşoğlu"
 
 experience:
-  - role: "AI Engineer"
+  - role: "AI Software Engineer"
     company: "AKINROBOTICS"
     location: "Konya, Turkey"
     date: "Sept 2022 - Present"

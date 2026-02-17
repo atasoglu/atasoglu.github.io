@@ -50,6 +50,7 @@ body {
 }
 
 .cv-page p {
+  margin-top: 0;
   margin-bottom: 0;
   color: inherit;
 }
@@ -187,7 +188,7 @@ body {
 }
 
 .cv-item + .cv-item {
-  margin-top: 10px;
+  margin-top: 6px;
 }
 
 .item-top {
@@ -227,6 +228,11 @@ body {
 
 .strong-inline {
   font-weight: 650;
+}
+
+.edu-dept {
+  font-weight: 400;
+  color: var(--cv-muted);
 }
 
 .label {

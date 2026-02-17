@@ -113,24 +113,19 @@ const canonicalURL = new URL("cv-print", siteUrl).toString();
         <article class="cv-item">
           <div class="item-top">
             <div class="item-left">
-              <p class="strong-inline">
-                <span class="label">{item.degree}</span>
-                <span>{item.school}</span>
-              </p>
-              {item.department && <p>{item.department}</p>}
+              <p class="strong-inline"><span class="label">{item.degree}</span>{item.department ? <><span>{item.department}</span><span class="edu-dept">, {item.school}</span></> : <span>{item.school}</span>}</p>
+              {item.highlights && item.highlights.length > 0 && (
+                <ul>
+                  {item.highlights.map((highlight) => (
+                    <li>{highlight}</li>
+                  ))}
+                </ul>
+              )}
             </div>
             <div class="item-right">
-              {item.location && <p>{item.location}</p>}
               <p>{item.date}</p>
             </div>
           </div>
-          {item.highlights && item.highlights.length > 0 && (
-            <ul>
-              {item.highlights.map((highlight) => (
-                <li>{highlight}</li>
-              ))}
-            </ul>
-          )}
         </article>
       ))}
     </section>
