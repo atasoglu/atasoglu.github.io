@@ -102,12 +102,12 @@ body {
   text-align: left;
 }
 
-.contact-item {
+.cv-page p.contact-item {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: 6px;
-  margin: 2px 0;
+  margin: 5px 0;
   font-size: 11.5px;
   color: var(--cv-text);
   line-height: 1.25;
@@ -150,6 +150,14 @@ body {
 }
 .icon-github {
   background: #333;
+}
+.icon-huggingface {
+  background: transparent;
+}
+
+.icon-huggingface svg {
+  width: 16px;
+  height: 16px;
 }
 
 .cv-section {

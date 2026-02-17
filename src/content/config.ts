@@ -78,6 +78,7 @@ const cvCollection = defineCollection({
     website: z.string().optional(),
     linkedin: z.string().optional(),
     github: z.string().optional(),
+    huggingface: z.string().optional(),
     introduction: z.array(z.string()).optional(),
     education: z.array(
       z.object({

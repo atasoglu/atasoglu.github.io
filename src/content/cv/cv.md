@@ -7,6 +7,7 @@ email: "ahmetatasoglu98@gmail.com"
 website: "https://atasoglu.github.io"
 linkedin: "https://linkedin.com/in/ahmet-ataşoğlu"
 github: "https://github.com/atasoglu"
+huggingface: "https://huggingface.co/atasoglu"
 
 introduction:
   - "This is Ahmet. I'm an <strong>Software Engineer</strong>."
