@@ -1,6 +1,7 @@
 ---
 fullName: "YOUR NAME"
-headline: "Your Title | Focus Area | Graduation Year"
+title: "AI Software Engineer"
+photo: "/avatar.jpg"
 location: "City, Country"
 email: "your.email@example.com"
 phone: "+1 555 000 0000"

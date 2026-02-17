@@ -70,7 +70,8 @@ const cvCollection = defineCollection({
   type: "content",
   schema: z.object({
     fullName: z.string(),
-    headline: z.string(),
+    title: z.string(),
+    photo: z.string().optional(),
     location: z.string().optional(),
     email: z.string().optional(),
     phone: z.string().optional(),
