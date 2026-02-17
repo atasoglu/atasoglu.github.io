@@ -126,9 +126,25 @@ const avatarPath = avatar
             </a>
           )}
           {cv && (
-            <a href={cv} target="_blank" rel="noopener noreferrer" class="social-link cv-link" aria-label="CV">
-              <span>cv</span>
-            </a>
+            cv.startsWith('http') || cv.endsWith('.pdf') ? (
+              <a 
+                href={cv} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="social-link cv-link" 
+                aria-label="CV"
+              >
+                <span>cv</span>
+              </a>
+            ) : (
+              <a 
+                href={cv} 
+                class="social-link cv-link" 
+                aria-label="CV"
+              >
+                <span>cv</span>
+              </a>
+            )
           )}
         </div>
       </div>

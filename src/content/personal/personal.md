@@ -8,7 +8,7 @@ huggingface: "https://huggingface.co/atasoglu"
 medium: "https://ahmetatasoglu98.medium.com"
 pypi: "https://pypi.org/user/atasoglu/"
 avatar: "avatar.jpg"
-cv: "cv.pdf"
+cv: "/cv"
 interests: ["NLP", "LLMs", "Robotics"]
 bio: "I'm a Software Engineer passionate about AI, NLP, and robotics. Currently working on embodied agents and exploring the intersection of language understanding and robotics."
 ---
