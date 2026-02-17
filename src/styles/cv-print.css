@@ -4,13 +4,17 @@
   --cv-blue: #0f4c81;
   --cv-blue-soft: #2a6ca8;
   --cv-text: #0f172a;
-  --cv-muted: #475569;
+  --cv-muted: #3e4c5e;
   --cv-rule: #2d6aa3;
   --cv-paper-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
 }
 
-html,
-body {
+html {
+  margin: 0;
+  padding: 0;
+}
+
+html body {
   margin: 0;
   padding: 0;
   background: #eef2f7;
@@ -19,9 +23,15 @@ body {
     "IBM Plex Sans", "SF Pro Text", "Segoe UI", "Helvetica Neue", Arial,
     sans-serif;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  text-rendering: auto;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+
+/* Force light appearance on CV page regardless of dark mode */
+html[data-theme="dark"] body {
+  background: #eef2f7;
+  color: var(--cv-text);
 }
 
 .cv-page {
@@ -35,6 +45,9 @@ body {
   box-sizing: border-box;
   font-size: 12px;
   line-height: 1.4;
+  color: var(--cv-text);
+  -webkit-user-select: text;
+  user-select: text;
 }
 
 /* Reset global.css overrides for CV page */
@@ -47,6 +60,9 @@ body {
 .cv-page h3 {
   margin-top: 0;
   margin-bottom: 0;
+  color: var(--cv-text);
+  font-family: inherit;
+  line-height: 1.1;
 }
 
 .cv-page p {
@@ -87,7 +103,7 @@ body {
   font-weight: 700;
 }
 
-.cv-title {
+.cv-page .cv-title {
   margin: 0;
   color: var(--cv-muted);
   font-size: 13.5px;
@@ -113,7 +129,7 @@ body {
   line-height: 1.25;
 }
 
-.contact-item a {
+.cv-page .contact-item a {
   color: var(--cv-blue);
 }
 
@@ -241,18 +257,22 @@ body {
   font-weight: 430;
 }
 
-.item-right {
+.cv-page .item-right {
   text-align: right;
   color: var(--cv-muted);
   font-weight: 400;
   min-width: 168px;
 }
 
+.cv-page .item-right p {
+  color: var(--cv-muted);
+}
+
 .strong-inline {
   font-weight: 650;
 }
 
-.edu-dept {
+.cv-page .edu-dept {
   font-weight: 400;
   color: var(--cv-muted);
 }
@@ -276,13 +296,93 @@ body {
   color: #000;
 }
 
-a {
+.cv-page a {
   color: var(--cv-blue);
   text-decoration: none;
+  transition: none;
 }
 
-a:hover {
+.cv-page a:hover {
+  color: var(--cv-blue-soft);
   text-decoration: underline;
+}
+
+/* Ensure text is selectable and copyable */
+.cv-page,
+.cv-page * {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.cv-page *::selection {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.cv-page *::-moz-selection {
+  background: #3b82f6;
+  color: #fff;
+}
+
+/* Dark mode: force CV page to use light theme colors */
+[data-theme="dark"] .cv-page {
+  color: var(--cv-text);
+  background: #fff;
+}
+
+[data-theme="dark"] .cv-page h1,
+[data-theme="dark"] .cv-page h2,
+[data-theme="dark"] .cv-page h3 {
+  color: var(--cv-text);
+}
+
+[data-theme="dark"] .cv-header-info h1 {
+  color: var(--cv-blue);
+}
+
+[data-theme="dark"] .cv-section h2 {
+  color: var(--cv-blue);
+}
+
+[data-theme="dark"] .cv-page p {
+  color: inherit;
+}
+
+[data-theme="dark"] .cv-page p.contact-item {
+  color: var(--cv-text);
+}
+
+[data-theme="dark"] .cv-page .item-right p {
+  color: var(--cv-muted);
+}
+
+[data-theme="dark"] .cv-page a {
+  color: var(--cv-blue);
+}
+
+[data-theme="dark"] .cv-page .cv-title {
+  color: var(--cv-muted);
+}
+
+[data-theme="dark"] .cv-page .item-right {
+  color: var(--cv-muted);
+}
+
+[data-theme="dark"] .cv-page .edu-dept {
+  color: var(--cv-muted);
+}
+
+[data-theme="dark"] .cv-introduction li,
+[data-theme="dark"] .cv-item li {
+  color: var(--cv-text);
+}
+
+[data-theme="dark"] .skills-grid p strong {
+  color: #000;
+}
+
+[data-theme="dark"] .skills-grid p {
+  color: var(--cv-text);
 }
 
 @media screen and (max-width: 900px) {
@@ -326,8 +426,9 @@ a:hover {
   }
 
   html,
-  body {
+  html body {
     background: #fff;
+    color: var(--cv-text);
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -339,6 +440,7 @@ a:hover {
     padding: 0;
     border-radius: 0;
     box-shadow: none;
+    color: var(--cv-text);
   }
 
   .cv-section h2::after {
