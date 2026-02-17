@@ -33,8 +33,8 @@ body {
   border-radius: 10px;
   box-shadow: var(--cv-paper-shadow);
   box-sizing: border-box;
-  font-size: 11.5px;
-  line-height: 1.35;
+  font-size: 12px;
+  line-height: 1.4;
 }
 
 /* Reset global.css overrides for CV page */
@@ -81,7 +81,7 @@ body {
 .cv-header-info h1 {
   margin: 0 0 2px;
   color: var(--cv-blue);
-  font-size: 24px;
+  font-size: 26px;
   line-height: 1.1;
   letter-spacing: -0.01em;
   font-weight: 700;
@@ -90,7 +90,7 @@ body {
 .cv-title {
   margin: 0;
   color: var(--cv-muted);
-  font-size: 13px;
+  font-size: 13.5px;
   line-height: 1.3;
   font-weight: 400;
   max-width: 320px;
@@ -108,7 +108,7 @@ body {
   justify-content: flex-start;
   gap: 6px;
   margin: 2px 0;
-  font-size: 11px;
+  font-size: 11.5px;
   color: var(--cv-text);
   line-height: 1.25;
 }
@@ -162,7 +162,7 @@ body {
   gap: 8px;
   margin: 0 -4px 2px -4px;
   color: var(--cv-blue);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 650;
   line-height: 1.1;
   letter-spacing: -0.01em;
@@ -187,8 +187,8 @@ body {
 }
 
 .cv-introduction li {
-  font-size: 11.5px;
-  line-height: 1.35;
+  font-size: 12px;
+  line-height: 1.4;
   color: var(--cv-text);
   margin-left: 4px;
   margin-right: 4px;
@@ -224,8 +224,8 @@ body {
 .item-right p,
 .cv-item li,
 .skills-grid p {
-  font-size: 11.5px;
-  line-height: 1.35;
+  font-size: 12px;
+  line-height: 1.4;
 }
 
 .skills-grid p {
