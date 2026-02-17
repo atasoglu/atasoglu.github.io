@@ -7,6 +7,7 @@ interface Props {
   description: string;
   canonicalURL?: string;
   ogImage?: string;
+  noindex?: boolean;
   personalData?: any;
   siteUrl?: string;
 }
@@ -16,6 +17,7 @@ const {
   description,
   canonicalURL,
   ogImage,
+  noindex = false,
   personalData,
   siteUrl = import.meta.env.SITE || 'https://atasoglu.github.io',
 } = Astro.props;
@@ -32,6 +34,7 @@ const structuredData = personalData
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <meta name="keywords" content="Ahmet Ataşoğlu, AI Engineer, NLP, LLMs, Robotics, Embodied Agents, Software Engineer, Machine Learning, Natural Language Processing" />
     <meta name="author" content={personalData?.name || 'Ahmet Ataşoğlu'} />
     

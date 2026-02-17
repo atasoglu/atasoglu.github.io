@@ -66,10 +66,69 @@ const postsCollection = defineCollection({
   }),
 });
 
+const cvCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    fullName: z.string(),
+    headline: z.string(),
+    location: z.string().optional(),
+    email: z.string().optional(),
+    phone: z.string().optional(),
+    website: z.string().optional(),
+    linkedin: z.string().optional(),
+    github: z.string().optional(),
+    education: z.array(
+      z.object({
+        degree: z.string(),
+        school: z.string(),
+        department: z.string().optional(),
+        location: z.string().optional(),
+        date: z.string(),
+        highlights: z.array(z.string()).optional(),
+      })
+    ),
+    skills: z.array(
+      z.object({
+        label: z.string(),
+        items: z.array(z.string()),
+      })
+    ),
+    publications: z
+      .array(
+        z.object({
+          title: z.string(),
+          venue: z.string().optional(),
+          status: z.string().optional(),
+          date: z.string().optional(),
+          links: z
+            .array(
+              z.object({
+                label: z.string(),
+                url: z.string(),
+              })
+            )
+            .optional(),
+          authors: z.string().optional(),
+        })
+      )
+      .optional(),
+    experience: z.array(
+      z.object({
+        role: z.string(),
+        company: z.string(),
+        location: z.string().optional(),
+        date: z.string(),
+        bullets: z.array(z.string()),
+      })
+    ),
+  }),
+});
+
 export const collections = {
   personal: personalCollection,
   experiences: experienceCollection,
   projects: projectsCollection,
   skills: skillsCollection,
   posts: postsCollection,
+  cv: cvCollection,
 };

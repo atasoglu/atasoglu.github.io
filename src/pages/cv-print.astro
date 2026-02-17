@@ -1,0 +1,134 @@
+---
+import { getCollection } from "astro:content";
+import Page from "../layouts/Page.astro";
+import "../styles/cv-print.css";
+
+const cvEntries = await getCollection("cv");
+const cv = cvEntries[0]?.data;
+
+if (!cv) {
+  throw new Error("Missing CV content. Add src/content/cv/cv.md.");
+}
+
+const siteUrl = import.meta.env.SITE || "https://atasoglu.github.io";
+const canonicalURL = new URL("cv-print", siteUrl).toString();
+---
+
+<Page
+  title={`${cv.fullName} - CV`}
+  description={`Printable CV for ${cv.fullName}`}
+  canonicalURL={canonicalURL}
+  noindex={true}
+>
+  <main class="cv-page">
+    <header class="cv-header">
+      <h1>{cv.fullName}</h1>
+      <p class="headline">{cv.headline}</p>
+      <p class="contact-line">
+        {cv.location && <span>{cv.location}</span>}
+        {cv.email && <span>{cv.email}</span>}
+        {cv.phone && <span>{cv.phone}</span>}
+        {cv.website && <span>{cv.website}</span>}
+      </p>
+      <p class="contact-line">
+        {cv.linkedin && <span>{cv.linkedin}</span>}
+        {cv.github && <span>{cv.github}</span>}
+      </p>
+    </header>
+
+    <section class="cv-section">
+      <h2>Education</h2>
+      {cv.education.map((item) => (
+        <article class="cv-item">
+          <div class="item-top">
+            <div class="item-left">
+              <p class="strong-inline">
+                <span class="label">{item.degree}</span>
+                <span>{item.school}</span>
+              </p>
+              {item.department && <p>{item.department}</p>}
+            </div>
+            <div class="item-right">
+              {item.location && <p>{item.location}</p>}
+              <p>{item.date}</p>
+            </div>
+          </div>
+          {item.highlights && item.highlights.length > 0 && (
+            <ul>
+              {item.highlights.map((highlight) => (
+                <li>{highlight}</li>
+              ))}
+            </ul>
+          )}
+        </article>
+      ))}
+    </section>
+
+    <section class="cv-section">
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        {cv.skills.map((group) => (
+          <p>
+            <strong>{group.label}:</strong> {group.items.join(", ")}
+          </p>
+        ))}
+      </div>
+    </section>
+
+    {cv.publications && cv.publications.length > 0 && (
+      <section class="cv-section">
+        <h2>Publications</h2>
+        {cv.publications.map((publication) => (
+          <article class="cv-item">
+            <div class="item-top">
+              <div class="item-left">
+                <p class="strong-inline">{publication.title}</p>
+                {publication.venue && <p>{publication.venue}</p>}
+                {publication.links && publication.links.length > 0 && (
+                  <p>
+                    {publication.links.map((link, index) => (
+                      <>
+                        {index > 0 && <span> | </span>}
+                        <a href={link.url} target="_blank" rel="noopener noreferrer">
+                          {link.label}
+                        </a>
+                      </>
+                    ))}
+                  </p>
+                )}
+                {publication.authors && <p class="authors">{publication.authors}</p>}
+              </div>
+              <div class="item-right">
+                {publication.status && <p>{publication.status}</p>}
+                {publication.date && <p>{publication.date}</p>}
+              </div>
+            </div>
+          </article>
+        ))}
+      </section>
+    )}
+
+    <section class="cv-section">
+      <h2>Experience</h2>
+      {cv.experience.map((item) => (
+        <article class="cv-item">
+          <div class="item-top">
+            <div class="item-left">
+              <p class="strong-inline">{item.company}</p>
+              <p>{item.role}</p>
+            </div>
+            <div class="item-right">
+              <p>{item.date}</p>
+              {item.location && <p>{item.location}</p>}
+            </div>
+          </div>
+          <ul>
+            {item.bullets.map((bullet) => (
+              <li>{bullet}</li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </section>
+  </main>
+</Page>
