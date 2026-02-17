@@ -132,12 +132,24 @@ body {
   height: 9px;
 }
 
-.icon-location { background: #e74c3c; }
-.icon-phone    { background: #1abc9c; }
-.icon-email    { background: #e67e22; }
-.icon-website  { background: #7f8c8d; }
-.icon-linkedin { background: #0077b5; }
-.icon-github   { background: #333;    }
+.icon-location {
+  background: #e74c3c;
+}
+.icon-phone {
+  background: #1abc9c;
+}
+.icon-email {
+  background: #e67e22;
+}
+.icon-website {
+  background: #7f8c8d;
+}
+.icon-linkedin {
+  background: #0077b5;
+}
+.icon-github {
+  background: #333;
+}
 
 .cv-section {
   margin-top: 5px;
@@ -174,6 +186,10 @@ body {
   break-inside: avoid;
 }
 
+.cv-item + .cv-item {
+  margin-top: 10px;
+}
+
 .item-top {
   display: flex;
   justify-content: space-between;
@@ -204,7 +220,8 @@ body {
 
 .item-right {
   text-align: right;
-  color: var(--cv-text);
+  color: var(--cv-muted);
+  font-weight: 400;
   min-width: 168px;
 }
 
