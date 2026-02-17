@@ -122,6 +122,17 @@ const cvCollection = defineCollection({
         bullets: z.array(z.string()),
       })
     ),
+    activities: z
+      .array(
+        z.object({
+          role: z.string(),
+          organization: z.string(),
+          date: z.string(),
+          category: z.string().optional(),
+          bullets: z.array(z.string()),
+        })
+      )
+      .optional(),
   }),
 });
 

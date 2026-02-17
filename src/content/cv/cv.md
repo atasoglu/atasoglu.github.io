@@ -101,6 +101,21 @@ experience:
     bullets:
       - "Completed the summer internship at the seeker head development center."
       - "Applied bio-inspired computing techniques to control systems; optimized PID controller parameters using Genetic Algorithms."
+
+activities:
+  - role: "Blogger"
+    organization: "Medium"
+    date: "May 2019 - Present"
+    category: "Science and Technology"
+    bullets:
+      - "I blog mainly about computer science and books, reaching over 100K views to date."
+  - role: "Instructor"
+    organization: "Deneyap Türkiye"
+    date: "Sept 2021 - May 2022"
+    category: "Education"
+    bullets:
+      - "Taught courses on Robotics, Artificial Intelligence, Mobile Programming, and Cybersecurity to middle and high school students."
+      - "Mentored two student teams on their Teknofest projects."
 ---
 
 This file is the single source of truth for your printable CV.
