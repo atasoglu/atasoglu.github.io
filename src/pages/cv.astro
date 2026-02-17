@@ -84,6 +84,17 @@ const canonicalURL = new URL("cv", siteUrl).toString();
       </div>
     </header>
 
+    {cv.introduction && cv.introduction.length > 0 && (
+      <section class="cv-section cv-introduction">
+        <h2>Introduction</h2>
+        <ul>
+          {cv.introduction.map((item) => (
+            <li set:html={item} />
+          ))}
+        </ul>
+      </section>
+    )}
+
     <section class="cv-section">
       <h2>Experience</h2>
       {cv.experience.map((item) => (
