@@ -10,7 +10,7 @@ github: "https://github.com/atasoglu"
 huggingface: "https://huggingface.co/atasoglu"
 
 introduction:
-  - "This is Ahmet. I'm an <strong>Software Engineer</strong>."
+  - "This is Ahmet. I'm a <strong>Software Engineer</strong>."
   - "I've been creating software for <strong>more than 8 years</strong> and I'm currently pursuing my <strong>Master's</strong>."
   - "My focus areas are <strong>LLMs</strong>, <strong>Multimodal Models</strong>, and <strong>Embodied Agents</strong>."
   - "I have a history of <strong>participating in and speaking</strong> at hackathons, bootcamps, workshops, talks, and local events for years."
