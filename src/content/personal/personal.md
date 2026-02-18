@@ -1,19 +1,21 @@
 ---
 name: "Ahmet Ataşoğlu"
-title: "Software Engineer"
+title: "Machine Learning Engineer"
 email: "ahmetatasoglu98@gmail.com"
-github: "atasoglu"
-linkedin: "https://www.linkedin.com/in/ahmet-ata%C5%9Fo%C4%9Flu/"
+github: "https://github.com/atasoglu"
+linkedin: "https://linkedin.com/in/ahmet-ataşoğlu"
 huggingface: "https://huggingface.co/atasoglu"
 medium: "https://ahmetatasoglu98.medium.com"
 pypi: "https://pypi.org/user/atasoglu/"
 avatar: "avatar.jpg"
+location: "Konya, Turkey"
+website: "https://atasoglu.github.io"
 cv: "/cv"
-interests: ["NLP", "LLMs", "Robotics"]
-bio: "I'm a Software Engineer passionate about AI, NLP, and robotics. Currently working on embodied agents and exploring the intersection of language understanding and robotics."
+interests: ["LLMs", "Multimodal Systems", "Embodied AI"]
+bio: "I am a Machine Learning Engineer with 8+ years in software development and 5+ years in training and deploying ML models. I am specialized in LLMs, Multimodal Systems, and Embodied AI."
 ---
 
-- 🌱 I'm currently working on robotics, specifically embodied agents.
-- 🎤 I'm open to collaborations, research discussions, and speaking opportunities.
-- 💬 Ask me about Python, bio-inspired algorithms, natural language understanding, and robotics interfaces.
+- 🌱 I'm currently working on **Multimodal Models** and **Embodied Agents**.
+- 🔬 Focused on **open-source ML tooling**, **reproducible systems**, and **efficient model architectures**.
+- 💬 Ask me about LLMs, multimodal systems, training pipelines, and robotics.
 - 🤭 **Fun fact:** I love watching mockumentaries.

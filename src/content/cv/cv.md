@@ -1,6 +1,6 @@
 ---
 fullName: "Ahmet Ataşoğlu"
-title: "Software Engineer"
+title: "Machine Learning Engineer"
 photo: "/avatar.jpg"
 location: "Konya, Turkey"
 email: "ahmetatasoglu98@gmail.com"
@@ -10,10 +10,9 @@ github: "https://github.com/atasoglu"
 huggingface: "https://huggingface.co/atasoglu"
 
 introduction:
-  - "This is Ahmet. I'm a <strong>Software Engineer</strong>."
-  - "I've been creating software for <strong>more than 8 years</strong> and I'm currently pursuing my <strong>Master's</strong>."
-  - "My focus areas are <strong>LLMs</strong>, <strong>Multimodal Models</strong>, and <strong>Embodied Agents</strong>."
-  - "I have a history of <strong>participating in and speaking</strong> at hackathons, bootcamps, workshops, talks, and local events for years."
+  - "Machine Learning Engineer with <strong>8+ years in software development</strong> and <strong>5+ years in training and deploying ML models</strong>."
+  - "Specializing in <strong>LLMs</strong>, <strong>Multimodal Systems</strong>, and <strong>Embodied AI</strong>, with experience <strong>building scalable training pipelines</strong> and <strong>optimizing model performance</strong>."
+  - "Focused on <strong>open-source ML tooling</strong>, <strong>reproducible systems</strong>, and <strong>efficient model architectures</strong>."
 
 education:
   - degree: "MS"
@@ -32,37 +31,56 @@ education:
       - "Minor: Computer Engineering"
 
 skills:
-  - label: "Languages"
-    items: ["Python", "C/C++", "Rust", "Go"]
-  - label: "Frameworks & Libraries"
+  - label: "Programming"
+    items: ["Python (advanced)", "C/C++", "Rust", "Go"]
+
+  - label: "ML Frameworks & Ecosystem"
     items:
       [
         "PyTorch",
         "HuggingFace Transformers",
-        "LangChain",
-        "ROS",
-        "FastAPI",
-        "Flask",
-        "OpenAI APIs",
+        "Accelerate",
+        "Diffusers",
+        "TorchAudio",
+        "TorchVision",
       ]
-  - label: "Techniques"
+
+  - label: "LLM & Multimodal Systems"
     items:
       [
-        "Machine Learning",
-        "Deep Learning",
-        "Computer Vision",
-        "NLP",
-        "LLMs",
+        "LLM Fine-tuning",
+        "LoRA / PEFT",
+        "RAG Architectures",
         "VLMs",
-        "RAG",
         "Tool Calling",
-        "ASR / TTS",
-        "OCR",
+        "ASR / TTS Pipelines",
         "Embodied Agents",
-        "Genetic Algorithms",
       ]
-  - label: "Tools"
-    items: ["Docker", "Git", "Linux", "CUDA", "CI/CD", "Jupyter"]
+
+  - label: "Training & Performance Optimization"
+    items:
+      [
+        "Knowledge Distillation",
+        "Model Quantization",
+        "Pruning & Sparsity",
+        "RLHF / DPO",
+        "FlashAttention",
+        "CUDA",
+        "vLLM",
+      ]
+
+  - label: "Deployment & Infrastructure"
+    items:
+      [
+        "ONNX",
+        "ONNX Runtime",
+        "Docker",
+        "Linux",
+        "Git",
+        "CI/CD",
+        "FastAPI",
+        "ROS",
+      ]
 
 publications:
   - title: "ToolsGen: Modular Tool-Calling Dataset Synthesis"
@@ -85,44 +103,49 @@ publications:
     authors: "Ahmet Ataşoğlu"
 
 experience:
-  - role: "AI Software Engineer"
+  - role: "Machine Learning Engineer"
     company: "AKINROBOTICS"
     location: "Konya, Turkey"
     date: "Sept 2022 - Present"
     bullets:
-      - "Developed NLP pipelines (chatbot, ASR, TTS) and implemented grounded language learning methods combining real-world sensor data for context-aware robot interactions."
-      - "Researched and deployed multi-modal LLM applications (text, speech, vision, tool calling) with scalable AI architectures integrated into robotic hardware."
-      - "Collaborated with interdisciplinary teams to design and deliver end-to-end intelligent robotic solutions."
+      - "Designed and implemented scalable NLP and multimodal training pipelines (LLM, ASR, TTS) using PyTorch-based ecosystems, enabling context-aware robotic interactions."
+      - "Developed and optimized multimodal LLM systems (text, speech, vision, tool-calling) with a focus on model efficiency, latency reduction, and real-world deployment constraints."
+      - "Built end-to-end embodied AI architectures integrating sensor data, grounding strategies, and hardware-aware inference pipelines."
+      - "Led experimentation workflows including fine-tuning, evaluation, and reproducibility practices for production-grade ML systems."
+
   - role: "Full Stack Developer"
     company: "ABRANERO"
     location: "Remote"
     date: "June 2021 - Aug 2022"
     bullets:
-      - "Contributed to a mobile e-commerce application, implementing user authentication, wishlist system, and payment gateway integration."
-      - "Built an accessibility-focused mobile app for individuals with disabilities, featuring real-time location tracking, audiobook player, OCR-based form filling, and voice control."
-      - "Developed a kiosk-based customer experience app and back-end services for intranet applications, focusing on database architecture and API development."
-  - role: "Summer Intern"
+      - "Designed and implemented backend services and API architectures supporting scalable mobile applications."
+      - "Developed real-time features including authentication, payment integration, and accessibility-focused services (OCR, voice control, location tracking)."
+      - "Architected database schemas and service layers with a focus on performance, maintainability, and production reliability."
+
+  - role: "Machine Learning Intern"
     company: "TUBITAK SAGE"
     location: "Ankara, Turkey"
     date: "Aug 2020 - Sept 2020"
     bullets:
-      - "Completed the summer internship at the seeker head development center."
-      - "Applied bio-inspired computing techniques to control systems; optimized PID controller parameters using Genetic Algorithms."
+      - "Applied bio-inspired optimization techniques (Genetic Algorithms) to tune PID controllers in defense-oriented control systems."
+      - "Improved controller stability and response characteristics through simulation-driven parameter search."
 
 activities:
-  - role: "Blogger"
+  - role: "Technical Writer"
     organization: "Medium"
     date: "May 2019 - Present"
-    category: "Science and Technology"
+    category: "Technical Writing"
     bullets:
-      - "I blog mainly about computer science and books, reaching over 100K views to date."
-  - role: "Instructor"
+      - "Published articles on machine learning, software engineering, and technical books, reaching 100K+ total views."
+      - "Wrote in-depth technical content on LLMs, AI systems, and engineering practices."
+
+  - role: "AI & Robotics Instructor"
     organization: "Deneyap Türkiye"
     date: "Sept 2021 - May 2022"
-    category: "Education"
+    category: "STEM Education"
     bullets:
-      - "Taught courses on programming, robotics and AI to middle and high school students."
-      - "Mentored two student teams on their Teknofest projects."
+      - "Delivered programming, robotics, and AI courses to middle and high school students."
+      - "Mentored two student teams for Teknofest technology competition projects."
 ---
 
 This file is the single source of truth for your printable CV.
