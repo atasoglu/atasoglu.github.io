@@ -11,8 +11,8 @@ huggingface: "https://huggingface.co/atasoglu"
 
 introduction:
   - "Machine Learning Engineer with <strong>8+ years in software development</strong> and <strong>5+ years in training and deploying ML models</strong>."
-  - "Specializing in <strong>LLMs</strong>, <strong>Multimodal Systems</strong>, and <strong>Embodied AI</strong>, with experience <strong>building scalable training pipelines</strong> and <strong>optimizing model performance</strong>."
-  - "Focused on <strong>open-source ML tooling</strong>, <strong>reproducible systems</strong>, and <strong>efficient model architectures</strong>."
+  - "Specializing in <strong>LLMs</strong>, <strong>Multimodal AI</strong> and <strong>Embodied AI</strong> with experience <strong>building scalable training pipelines</strong> and <strong>optimizing model performance</strong>."
+  - "Focused on <strong>open-source ML tooling</strong>, <strong>reproducible systems</strong> and <strong>efficient model architectures</strong>."
 
 education:
   - degree: "MS"
@@ -53,6 +53,9 @@ skills:
         "RAG Architectures",
         "VLMs",
         "Tool Calling",
+        "Model Context Protocol",
+        "Conversational AI",
+        "AI Assistant",
         "ASR / TTS Pipelines",
         "Embodied Agents",
       ]
@@ -62,9 +65,7 @@ skills:
       [
         "Knowledge Distillation",
         "Model Quantization",
-        "Pruning & Sparsity",
         "RLHF / DPO",
-        "FlashAttention",
         "CUDA",
         "vLLM",
       ]
@@ -77,7 +78,8 @@ skills:
         "Docker",
         "Linux",
         "Git",
-        "CI/CD",
+        "GitLab CI/CD",
+        "DevOps",
         "FastAPI",
         "ROS",
       ]
@@ -109,9 +111,9 @@ experience:
     date: "Sept 2022 - Present"
     bullets:
       - "Designed and implemented scalable NLP and multimodal training pipelines (LLM, ASR, TTS) using PyTorch-based ecosystems, enabling context-aware robotic interactions."
-      - "Developed and optimized multimodal LLM systems (text, speech, vision, tool-calling) with a focus on model efficiency, latency reduction, and real-world deployment constraints."
-      - "Built end-to-end embodied AI architectures integrating sensor data, grounding strategies, and hardware-aware inference pipelines."
-      - "Led experimentation workflows including fine-tuning, evaluation, and reproducibility practices for production-grade ML systems."
+      - "Developed and optimized multimodal LLM systems (text, speech, vision, tool-calling) with a focus on model efficiency, latency reduction and real-world deployment constraints."
+      - "Built end-to-end embodied AI architectures integrating sensor data, grounding strategies and hardware-aware inference pipelines."
+      - "Led experimentation workflows including fine-tuning, evaluation and reproducibility practices for production-grade ML systems."
 
   - role: "Full Stack Developer"
     company: "ABRANERO"
@@ -119,10 +121,10 @@ experience:
     date: "June 2021 - Aug 2022"
     bullets:
       - "Designed and implemented backend services and API architectures supporting scalable mobile applications."
-      - "Developed real-time features including authentication, payment integration, and accessibility-focused services (OCR, voice control, location tracking)."
-      - "Architected database schemas and service layers with a focus on performance, maintainability, and production reliability."
+      - "Developed real-time features including authentication, payment integration and accessibility-focused services (OCR, voice control, location tracking)."
+      - "Architected database schemas and service layers with a focus on performance, maintainability and production reliability."
 
-  - role: "Machine Learning Intern"
+  - role: "Summer Intern"
     company: "TUBITAK SAGE"
     location: "Ankara, Turkey"
     date: "Aug 2020 - Sept 2020"
@@ -136,15 +138,15 @@ activities:
     date: "May 2019 - Present"
     category: "Technical Writing"
     bullets:
-      - "Published articles on machine learning, software engineering, and technical books, reaching 100K+ total views."
-      - "Wrote in-depth technical content on LLMs, AI systems, and engineering practices."
+      - "Published articles on machine learning, software engineering and technical books, reaching 100K+ total views."
+      - "Wrote in-depth technical content on LLMs, AI systems and engineering practices."
 
   - role: "AI & Robotics Instructor"
     organization: "Deneyap Türkiye"
     date: "Sept 2021 - May 2022"
     category: "STEM Education"
     bullets:
-      - "Delivered programming, robotics, and AI courses to middle and high school students."
+      - "Delivered programming, robotics and AI courses to middle and high school students."
       - "Mentored two student teams for Teknofest technology competition projects."
 ---
 
