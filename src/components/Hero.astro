@@ -15,15 +15,9 @@ interface Props {
   medium?: string;
   pypi?: string;
   interests?: string[];
-  posts?: Array<{
-    title: string;
-    description: string;
-    date: string;
-    url?: string;
-  }>;
 }
 
-const { name, title, bio, avatar, university, email, linkedin, github, twitter, scholar, cv, huggingface, medium, pypi, interests, posts } = Astro.props;
+const { name, title, bio, avatar, university, email, linkedin, github, twitter, scholar, cv, huggingface, medium, pypi, interests } = Astro.props;
 
 // Handle avatar path with base URL
 const baseURL = import.meta.env.BASE_URL;
@@ -162,43 +156,17 @@ const avatarPath = avatar
           </div>
         )}
 
-        {(interests && interests.length > 0) || (posts && posts.length > 0) ? (
-          <div class="hero-section hero-section-grid">
-            {interests && interests.length > 0 && (
-              <div class="hero-subsection">
-                <h2 class="section-heading">Interests</h2>
-                <ul class="interests-list">
-                  {interests.map((interest) => (
-                    <li>{interest}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {posts && posts.length > 0 && (
-              <div class="hero-subsection">
-                <h2 class="section-heading">Recent Posts</h2>
-                <ul class="posts-list">
-                  {posts.map((post) => (
-                    <li class="post-item">
-                      {post.url ? (
-                        <a href={post.url} class="post-link" target="_blank" rel="noopener noreferrer">
-                          <div class="post-title">{post.title}</div>
-                          <div class="post-description">{post.description}</div>
-                        </a>
-                      ) : (
-                        <div class="post-link-static">
-                          <div class="post-title">{post.title}</div>
-                          <div class="post-description">{post.description}</div>
-                        </div>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+        {interests && interests.length > 0 && (
+          <div class="hero-section">
+            <h2 class="section-heading">Interests</h2>
+            <div class="interests-tags">
+              {interests.map((interest) => (
+                <span class="interest-tag">{interest}</span>
+              ))}
+            </div>
           </div>
-        ) : null}
+        )}
+
       </div>
     </div>
   </div>
@@ -214,7 +182,7 @@ const avatarPath = avatar
     display: grid;
     grid-template-columns: 30% 70%;
     gap: var(--spacing-2xl);
-    align-items: start;
+    align-items: center;
   }
   
   /* Left Column */
@@ -321,23 +289,13 @@ const avatarPath = avatar
   .hero-right {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-sm);
   }
   
   .hero-section {
-    margin-bottom: var(--spacing-lg);
-  }
-  
-  .hero-section-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-sm);
-    align-items: start;
-  }
-  
-  .hero-subsection {
     margin-bottom: 0;
   }
+  
   
   .section-heading {
     font-size: clamp(1.25rem, 2vw, 1.5rem);
@@ -385,72 +343,22 @@ const avatarPath = avatar
     font-weight: 600;
   }
   
-  .interests-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  .interests-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
   }
   
-  .interests-list li {
-    position: relative;
-    padding-left: var(--spacing-md);
-    margin-bottom: var(--spacing-xs);
+  .interest-tag {
+    padding: var(--spacing-xs) var(--spacing-md);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
     color: var(--color-text-light);
     font-size: 1rem;
-    line-height: 1.6;
+    line-height: 1.5;
+    white-space: nowrap;
   }
   
-  .interests-list li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: var(--color-text-light);
-  }
-  
-  .posts-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .post-item {
-    margin-bottom: var(--spacing-sm);
-  }
-  
-  .post-link,
-  .post-link-static {
-    display: block;
-    padding: var(--spacing-xs) var(--spacing-sm);
-    border-left: 2px solid var(--color-border);
-    transition: var(--transition);
-  }
-  
-  .post-link {
-    text-decoration: none;
-  }
-  
-  .post-link:hover {
-    border-left-color: var(--color-primary);
-  }
-  
-  .post-title {
-    font-weight: 500;
-    color: var(--color-text);
-    margin-bottom: 2px;
-    font-size: 0.9rem;
-    line-height: 1.3;
-  }
-  
-  .post-link:hover .post-title {
-    color: var(--color-primary);
-  }
-  
-  .post-description {
-    color: var(--color-text-light);
-    font-size: 0.8rem;
-    line-height: 1.4;
-    display: none;
-  }
   
   @media (max-width: 968px) {
     .hero-content {
@@ -471,10 +379,6 @@ const avatarPath = avatar
       height: 150px;
     }
     
-    .hero-section-grid {
-      grid-template-columns: 1fr;
-      gap: var(--spacing-lg);
-    }
   }
   
   @media (max-width: 768px) {
@@ -518,13 +422,10 @@ const avatarPath = avatar
       line-height: 1.7;
     }
     
-    .interests-list li {
+    .interest-tag {
       font-size: 0.95rem;
     }
     
-    .post-title {
-      font-size: 0.85rem;
-    }
   }
   
   @media (max-width: 480px) {
@@ -590,19 +491,10 @@ const avatarPath = avatar
       margin-bottom: var(--spacing-sm);
     }
     
-    .interests-list li {
+    .interest-tag {
       font-size: 0.9rem;
       line-height: 1.5;
-      margin-bottom: var(--spacing-xs);
     }
     
-    .post-link,
-    .post-link-static {
-      padding: var(--spacing-xs);
-    }
-    
-    .post-title {
-      font-size: 0.8rem;
-    }
   }
 </style>

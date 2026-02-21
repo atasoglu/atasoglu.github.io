@@ -13,7 +13,6 @@ const personalEntries = await getCollection('personal');
 const experienceEntries = await getCollection('experiences');
 const projectEntries = await getCollection('projects');
 const skillEntries = await getCollection('skills');
-const postEntries = await getCollection('posts');
 
 // Get first (and only) personal entry
 const personalEntry = personalEntries[0];
@@ -40,16 +39,6 @@ const projects = projectEntries.map(entry => entry.data);
 
 // Group skills by category
 const skills = skillEntries.map(entry => entry.data);
-
-// Get recent posts (sorted by date, newest first, limit to 3)
-const posts = postEntries
-  .map(entry => entry.data)
-  .sort((a, b) => {
-    const dateA = new Date(a.date).getTime();
-    const dateB = new Date(b.date).getTime();
-    return dateB - dateA;
-  })
-  .slice(0, 3);
 
 const siteUrl = import.meta.env.SITE || 'https://atasoglu.github.io';
 const pageTitle = `${personal.name} - ${personal.title}`;
@@ -80,7 +69,6 @@ const pageDescription = personal.bio || personalEntry?.body || 'Personal portfol
       medium={personal.medium}
       pypi={personal.pypi}
       interests={personal.interests}
-      posts={posts}
     />
     <About
       AboutContent={BioContent}
