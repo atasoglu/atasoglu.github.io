@@ -60,9 +60,9 @@ const postsCollection = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
-    description: z.string(),
-    date: z.string(),
-    url: z.string().url().optional(),
+    lang: z.string(),
+    url: z.string().url(),
+    date: z.string().optional(),
   }),
 });
 

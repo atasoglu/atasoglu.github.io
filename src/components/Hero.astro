@@ -1,4 +1,10 @@
 ---
+interface LatestPost {
+  lang: string;
+  title: string;
+  url: string;
+}
+
 interface Props {
   name: string;
   title: string;
@@ -15,9 +21,10 @@ interface Props {
   medium?: string;
   pypi?: string;
   interests?: string[];
+  latestPosts?: LatestPost[];
 }
 
-const { name, title, bio, avatar, university, email, linkedin, github, twitter, scholar, cv, huggingface, medium, pypi, interests } = Astro.props;
+const { name, title, bio, avatar, university, email, linkedin, github, twitter, scholar, cv, huggingface, medium, pypi, interests, latestPosts } = Astro.props;
 
 // Handle avatar path with base URL
 const baseURL = import.meta.env.BASE_URL;
@@ -156,16 +163,34 @@ const avatarPath = avatar
           </div>
         )}
 
-        {interests && interests.length > 0 && (
-          <div class="hero-section">
-            <h2 class="section-heading">Interests</h2>
-            <div class="interests-tags">
-              {interests.map((interest) => (
-                <span class="interest-tag">{interest}</span>
-              ))}
+        <div class="hero-bottom-row">
+          {interests && interests.length > 0 && (
+            <div class="hero-section">
+              <h2 class="section-heading">Interests</h2>
+              <div class="interests-tags">
+                {interests.map((interest) => (
+                  <span class="interest-tag">{interest}</span>
+                ))}
+              </div>
             </div>
-          </div>
-        )}
+          )}
+
+          {latestPosts && latestPosts.length > 0 && (
+            <div class="hero-section">
+              <h2 class="section-heading">Latest Posts</h2>
+              <ul class="recent-posts-list">
+                {latestPosts.map((post) => (
+                  <li>
+                    <a href={post.url} target="_blank" rel="noopener noreferrer">
+                      <span class="post-lang">[{post.lang}]</span>
+                      <span class="post-title">{post.title}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
 
       </div>
     </div>
@@ -343,6 +368,12 @@ const avatarPath = avatar
     font-weight: 600;
   }
   
+  .hero-bottom-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+  }
+
   .interests-tags {
     display: flex;
     flex-wrap: wrap;
@@ -350,15 +381,44 @@ const avatarPath = avatar
   }
   
   .interest-tag {
-    padding: var(--spacing-xs) var(--spacing-md);
+    padding: 0.2rem 0.6rem;
     border: 1px solid var(--color-border);
     border-radius: 4px;
     color: var(--color-text-light);
-    font-size: 1rem;
-    line-height: 1.5;
+    font-size: 0.85rem;
+    line-height: 1.4;
     white-space: nowrap;
   }
-  
+
+  .recent-posts-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .recent-posts-list li a {
+    color: var(--color-text-light);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    text-decoration: none;
+    transition: var(--transition);
+    display: flex;
+    gap: 0.4em;
+  }
+
+  .recent-posts-list li a:hover {
+    color: var(--color-primary);
+  }
+
+  .post-lang {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
   
   @media (max-width: 968px) {
     .hero-content {
@@ -379,6 +439,13 @@ const avatarPath = avatar
       height: 150px;
     }
     
+  }
+
+  @media (max-width: 640px) {
+    .hero-bottom-row {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-lg);
+    }
   }
   
   @media (max-width: 768px) {
@@ -423,7 +490,11 @@ const avatarPath = avatar
     }
     
     .interest-tag {
-      font-size: 0.95rem;
+      font-size: 0.8rem;
+    }
+
+    .recent-posts-list li a {
+      font-size: 1rem;
     }
     
   }
@@ -492,8 +563,12 @@ const avatarPath = avatar
     }
     
     .interest-tag {
-      font-size: 0.9rem;
-      line-height: 1.5;
+      font-size: 0.75rem;
+      line-height: 1.4;
+    }
+
+    .recent-posts-list li a {
+      font-size: 0.95rem;
     }
     
   }
