@@ -1,6 +1,6 @@
 ---
 fullName: "Ahmet Ataşoğlu"
-title: "Machine Learning Engineer"
+title: "AI Engineer"
 photo: "/avatar.jpg"
 location: "Konya, Turkey"
 email: "ahmetatasoglu98@gmail.com"
@@ -10,9 +10,9 @@ github: "https://github.com/atasoglu"
 huggingface: "https://huggingface.co/atasoglu"
 
 introduction:
-  - "Machine Learning Engineer with <strong>8+ years in software development</strong> and <strong>5+ years in training and deploying ML models</strong>."
+  - "AI Engineer with <strong>8+ years in software development</strong> and <strong>5+ years in training and deploying AI models</strong>."
   - "Specializing in <strong>LLMs</strong>, <strong>Multimodal AI</strong> and <strong>Embodied AI</strong> with experience <strong>building scalable training pipelines</strong> and <strong>optimizing model performance</strong>."
-  - "Focused on <strong>open-source ML tooling</strong>, <strong>reproducible systems</strong> and <strong>efficient model architectures</strong>."
+  - "Focused on <strong>open-source AI tooling</strong>, <strong>reproducible systems</strong> and <strong>efficient model architectures</strong>."
 
 education:
   - degree: "MS"
@@ -34,7 +34,7 @@ skills:
   - label: "Programming"
     items: ["Python (advanced)", "C/C++", "Rust", "Go"]
 
-  - label: "ML Frameworks & Ecosystem"
+  - label: "AI Frameworks & Ecosystem"
     items:
       [
         "PyTorch",
@@ -105,7 +105,7 @@ publications:
     authors: "Ahmet Ataşoğlu"
 
 experience:
-  - role: "Machine Learning Engineer"
+  - role: "AI Engineer"
     company: "AKINROBOTICS"
     location: "Konya, Turkey"
     date: "Sept 2022 - Present"
@@ -113,7 +113,7 @@ experience:
       - "Designed and implemented scalable NLP and multimodal training pipelines (LLM, ASR, TTS) using PyTorch-based ecosystems, enabling context-aware robotic interactions."
       - "Developed and optimized multimodal LLM systems (text, speech, vision, tool-calling) with a focus on model efficiency, latency reduction and real-world deployment constraints."
       - "Built end-to-end embodied AI architectures integrating sensor data, grounding strategies and hardware-aware inference pipelines."
-      - "Led experimentation workflows including fine-tuning, evaluation and reproducibility practices for production-grade ML systems."
+      - "Led experimentation workflows including fine-tuning, evaluation and reproducibility practices for production-grade AI systems."
 
   - role: "Full Stack Developer"
     company: "ABRANERO"
@@ -138,7 +138,7 @@ activities:
     date: "May 2019 - Present"
     category: "Technical Writing"
     bullets:
-      - "Published articles on machine learning, software engineering and technical books, reaching 100K+ total views."
+      - "Published articles on AI, software engineering and technical books, reaching 100K+ total views."
       - "Wrote in-depth technical content on LLMs, AI systems and engineering practices."
 
   - role: "AI & Robotics Instructor"

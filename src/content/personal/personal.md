@@ -1,6 +1,6 @@
 ---
 name: "Ahmet Ataşoğlu"
-title: "Machine Learning Engineer"
+title: "AI Engineer"
 email: "ahmetatasoglu98@gmail.com"
 github: "https://github.com/atasoglu"
 linkedin: "https://linkedin.com/in/ahmet-ataşoğlu"
@@ -22,10 +22,10 @@ interests:
     "Model Optimization",
     "ML Pipelines",
   ]
-bio: "I am a Machine Learning Engineer with <strong>8+ years in software development</strong> and <strong>5+ years in training and deploying ML models</strong>. I am specialized in <strong>LLMs</strong>, <strong>Multimodal AI</strong>, and <strong>Embodied AI</strong>."
+bio: "I am a AI Engineer with <strong>8+ years in software development</strong> and <strong>5+ years in training and deploying AI models</strong>. I am specialized in <strong>LLMs</strong>, <strong>Multimodal AI</strong>, and <strong>Embodied AI</strong>."
 ---
 
 - 🤖 Building intelligent systems that combine <strong>language</strong>, <strong>vision</strong> and <strong>different modalities</strong>
 - 🔬 Developing practical AI solutions that bridge <strong>research</strong> and <strong>real-world applications</strong>
 - 🚀 Focused on creating systems that can <strong>learn</strong>, <strong>adapt</strong>, and <strong>operate</strong> in dynamic environments
-- 🛠️ Passionate about <strong>open-source ML tooling</strong> and <strong>reproducible AI systems</strong>
+- 🛠️ Passionate about <strong>open-source AI tooling</strong> and <strong>reproducible AI systems</strong>
