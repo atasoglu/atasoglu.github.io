@@ -14,6 +14,7 @@ cv: "/cv"
 interests:
   [
     "LLMs",
+    "NLP",
     "Multimodal AI",
     "AI Agents",
     "Embodied AI",
