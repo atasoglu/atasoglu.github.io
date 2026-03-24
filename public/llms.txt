@@ -1,0 +1,61 @@
+# Ahmet Atasoglu
+
+> AI Engineer based in Konya, Turkey. 5+ years in software engineering with a focus on LLM systems, multimodal AI, and embodied AI.
+
+Ahmet Atasoglu builds production-grade AI systems that combine language, vision, speech, and tool use. He currently works as an AI Engineer at AKINROBOTICS, where he designs multimodal training pipelines for humanoid robots. He is also pursuing an MS in Mechatronics Engineering at Selcuk University, researching multimodal models and embodied agents.
+
+His core engineering strengths are training and fine-tuning LLMs, building ASR/TTS pipelines, optimizing inference latency, and deploying models under real-world hardware constraints. He works primarily in Python with PyTorch, HuggingFace Transformers, Accelerate, and vLLM.
+
+## Experience
+
+AKINROBOTICS - AI Engineer (Sept 2022 - Present, Konya):
+Designs scalable NLP and multimodal training pipelines (LLM, ASR, TTS) using PyTorch-based tools for context-aware robotic interactions. Develops and optimizes multimodal LLM systems across text, speech, vision, and tool-calling with a focus on efficiency and latency. Builds end-to-end embodied AI architectures integrating sensor data, grounding strategies, and hardware-aware inference. Leads fine-tuning, evaluation, and reproducibility workflows for production AI systems.
+
+ABRANERO - Full Stack Developer (June 2021 - Aug 2022, Remote):
+Built backend services and API architectures for scalable mobile applications. Implemented real-time features including authentication, payment integration, OCR, voice control, and location tracking. Designed database schemas and service layers focused on performance and reliability.
+
+TUBITAK SAGE - Summer Intern (Aug 2020 - Sept 2020, Ankara):
+Applied genetic algorithms to tune PID controllers in defense-oriented control systems. Improved controller stability through simulation-driven parameter search.
+
+## Education
+
+MS - Mechatronics Engineering, Selcuk University (Sept 2025 - Present). Focus: Multimodal Models, Embodied Agents.
+BS - Mechatronics Engineering, Necmettin Erbakan University (Sept 2017 - June 2021). Minor: Computer Engineering.
+
+## Skills
+
+Programming: Python (advanced), C/C++, Rust, Go.
+AI Frameworks: PyTorch, HuggingFace Transformers, Accelerate, Diffusers, TorchAudio, TorchVision.
+LLM & Multimodal: LLM fine-tuning, LoRA/PEFT, RAG, VLMs, tool calling, MCP, conversational AI, ASR/TTS pipelines, embodied agents.
+Optimization: Knowledge distillation, model quantization, RLHF/DPO, CUDA, vLLM.
+Deployment: ONNX, ONNX Runtime, Docker, Linux, Git, GitLab CI/CD, FastAPI, ROS.
+
+## Selected Projects
+
+- [ToolsGen](https://github.com/atasoglu/toolsgen): Python library for synthesizing tool-calling datasets from JSON tool definitions using an LLM-as-a-judge pipeline. Published on PyPI.
+- [SQLite-Vec-Client](https://github.com/atasoglu/sqlite-vec-client): Lightweight Python client for storing text, metadata, and float32 embeddings in SQLite with fast similarity search.
+- [ask2api](https://github.com/atasoglu/ask2api): Minimal CLI that converts natural language prompts into structured API-style JSON responses via LLM.
+- [WebSense](https://github.com/atasoglu/websense): Python library that uses AI to semantically extract structured data from raw websites without brittle selectors.
+
+## Writing
+
+Technical writer on Medium since 2019 with 100K+ total views. Publishes articles on LLMs, AI systems, software engineering, and engineering practices.
+
+- [AI Destekli Kod Yazma Rehberi](https://ahmetatasoglu98.medium.com/ai-destekli-kod-yazma-rehberi-20c0cd0809b6): AI-assisted coding workflows.
+- [Let's Get Rusty!](https://medium.com/@ahmetatasoglu98/lets-get-rusty-a6f37fc54eda): Learning and using Rust.
+- [Python Yavas Olmak Zorunda Degil!](https://medium.com/@ahmetatasoglu98/python-yavaş-olmak-zorunda-değil-5811d03c6868): Python performance and practical optimization.
+
+## Links
+
+- [Portfolio](https://atasoglu.github.io/): Main site with profile, projects, experience, and contact.
+- [CV page](https://atasoglu.github.io/cv): Full formatted resume.
+- [GitHub](https://github.com/atasoglu)
+- [Hugging Face](https://huggingface.co/atasoglu)
+- [LinkedIn](https://linkedin.com/in/ahmet-ata%C5%9Fo%C4%9Flu)
+- [Medium](https://ahmetatasoglu98.medium.com)
+- [PyPI](https://pypi.org/user/atasoglu/)
+
+## Optional
+
+- [CV PDF](https://atasoglu.github.io/cv.pdf): Printable resume.
+- [Email](mailto:ahmetatasoglu98@gmail.com): Direct contact.
