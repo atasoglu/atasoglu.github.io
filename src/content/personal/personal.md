@@ -23,7 +23,7 @@ interests:
     "Model Optimization",
     "ML Pipelines",
   ]
-bio: "I am an AI Engineer with <strong>8+ years in software development</strong> and <strong>5+ years in training and deploying AI models</strong>. I am specialized in <strong>LLMs</strong>, <strong>Multimodal AI</strong>, and <strong>Embodied AI</strong>."
+bio: "I am an AI Engineer with <strong>5+ years</strong> in <strong>software engineering</strong> and experience in <strong>AI model training and deployment</strong>. I am specialized in <strong>LLMs</strong>, <strong>Multimodal AI</strong>, and <strong>Embodied AI</strong>."
 ---
 
 - 🤖 Building intelligent systems that combine <strong>language</strong>, <strong>vision</strong> and <strong>different modalities</strong>

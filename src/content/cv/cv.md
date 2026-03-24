@@ -10,7 +10,7 @@ github: "https://github.com/atasoglu"
 huggingface: "https://huggingface.co/atasoglu"
 
 introduction:
-  - "AI Engineer with <strong>8+ years in software development</strong> and <strong>5+ years in training and deploying AI models</strong>."
+  - "AI Engineer with <strong>5+ years</strong> in <strong>software engineering</strong> and experience in <strong>AI model training and deployment</strong>."
   - "Specializing in <strong>LLMs</strong>, <strong>Multimodal AI</strong> and <strong>Embodied AI</strong> with experience <strong>building scalable training pipelines</strong> and <strong>optimizing model performance</strong>."
   - "Focused on <strong>open-source AI tooling</strong>, <strong>reproducible systems</strong> and <strong>efficient model architectures</strong>."
 
